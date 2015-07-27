@@ -1,0 +1,396 @@
+
+
+
+User Commands                                            chmod(1)
+
+
+
+NAME
+     chmod - change the permissions mode of a file
+
+SYNOPSIS
+     chmod [ -fR ] <_a_b_s_o_l_u_t_e-_m_o_d_e> _f_i_l_e...
+     chmod [ -fR ] <_s_y_m_b_o_l_i_c-_m_o_d_e-_l_i_s_t> _f_i_l_e...
+
+DESCRIPTION
+     chmod changes or assigns the mode of a file.  The mode of  a
+     file  specifies  its  permissions and other attributes.  The
+     mode may be absolute or symbolic.
+
+  Absolute _m_o_d_e
+     An absolute _m_o_d_e is specified using octal numbers:
+
+          chmod _n_n_n_n _f_i_l_e ...
+
+     where:
+
+          _n         a number from 0 to 7.  An  absolute  mode  is
+                    constructed from the OR of any of the follow-
+                    ing modes:
+
+                    4000      Set user ID on execution.
+                    20#0      Set group ID on execution if  #  is
+                              7, 5, 3, or 1.
+                              Enable mandatory locking if # is 6,
+                              4, 2, or 0.
+                              For directories, files are  created
+                              with  BSD semantics for propagation
+                              of the group ID. With this  option,
+                              files and subdirectories created in
+                              the directory inherit the group  ID
+                              of  the  directory,  rather than of
+                              the current  process.   It  may  be
+                              cleared   only  by  using  symbolic
+                              mode.
+                    1000      Turn on sticky bit. See chmod(2).
+                    0400      Allow read by owner.
+                    0200      Allow write by owner.
+                    0100      Allow execute (search in directory)
+                              by owner.
+                    0700      Allow  read,  write,  and   execute
+                              (search) by owner.
+                    0040      Allow read by group.
+                    0020      Allow write by group.
+                    0010      Allow execute (search in directory)
+                              by group.
+                    0070      Allow  read,  write,  and   execute
+                              (search) by group.
+                    0004      Allow read by others.
+                    0002      Allow write by others.
+
+
+
+SunOS 5.6            Last change: 1 Feb 1995                    1
+
+
+
+
+
+
+User Commands                                            chmod(1)
+
+
+
+                    0001      Allow execute (search in directory)
+                              by others.
+                    0007      Allow  read,  write,  and   execute
+                              (search) by others.
+
+     Note that the setgid bit cannot be set (or cleared) in abso-
+     lute  mode;  it  must  be  set (or cleared) in symbolic mode
+     using g+s (or g-s).
+
+  Symbolic _m_o_d_e
+     A symbolic _m_o_d_e specification has the following format:
+
+          chmod <_s_y_m_b_o_l_i_c-_m_o_d_e-_l_i_s_t> _f_i_l_e...
+
+     where:  <_s_y_m_b_o_l_i_c-_m_o_d_e-_l_i_s_t> is a comma-separated list (with
+     no  intervening  whitespace) of symbolic mode expressions of
+     the form:
+          [_w_h_o] _o_p_e_r_a_t_o_r [_p_e_r_m_i_s_s_i_o_n_s]
+
+     Operations are performed in the order given.  Multiple  _p_e_r_-
+     _m_i_s_s_i_o_n_s  letters  following  a  single  operator  cause the
+     corresponding operations to be performed simultaneously.
+
+          _w_h_o       zero or more of the characters u, g, o, and a
+                    specifying   whose   permissions  are  to  be
+                    changed or assigned:
+
+                    u         user's permissions
+                    g         group's permissions
+                    o         others' permissions
+                    a         all permissions (user,  group,  and
+                              other)
+
+                    If _w_h_o is omitted, it defaults to a, but  the
+                    setting  of  the file mode creation mask (see
+                    umask in sh(1) or csh(1)  for  more  informa-
+                    tion)  is  taken  into  account.  When _w_h_o is
+                    omitted, chmod will not override the restric-
+                    tions of your user mask.
+
+          _o_p_e_r_a_t_o_r  either +, -, or =, signifying how permissions
+                    are to be changed:
+
+                    +         Add permissions.
+
+                              If _p_e_r_m_i_s_s_i_o_n_s is omitted,  nothing
+                              is added.
+
+                              If _w_h_o is  omitted,  add  the  file
+                              mode  bits  represented  by _p_e_r_m_i_s_-
+                              _s_i_o_n_s, _e_x_c_e_p_t for  the  those  with
+                              corresponding bits in the file mode
+
+
+
+SunOS 5.6            Last change: 1 Feb 1995                    2
+
+
+
+
+
+
+User Commands                                            chmod(1)
+
+
+
+                              creation mask.
+
+                              If _w_h_o is  present,  add  the  file
+                              mode  bits  represented by the _p_e_r_-
+                              _m_i_s_s_i_o_n_s.
+
+                    -         Take away permissions.
+
+                              If _p_e_r_m_i_s_s_i_o_n_s is omitted, do noth-
+                              ing.
+
+                              If _w_h_o is omitted, clear  the  file
+                              mode  bits  represented  by _p_e_r_m_i_s_-
+                              _s_i_o_n_s,  _e_x_c_e_p_t   for   those   with
+                              corresponding bits in the file mode
+                              creation mask.
+
+                              If _w_h_o is present, clear  the  file
+                              mode  bits  represented  by _p_e_r_m_i_s_-
+                              _s_i_o_n_s.
+
+                    =         Assign permissions absolutely.
+
+                              If _w_h_o is omitted, clear  all  file
+                              mode bits; if _w_h_o is present, clear
+                              the file mode bits  represented  by
+                              _w_h_o.
+
+                              If _p_e_r_m_i_s_s_i_o_n_s is omitted, do noth-
+                              ing else.
+
+                              If _w_h_o is  omitted,  add  the  file
+                              mode  bits  represented  by _p_e_r_m_i_s_-
+                              _s_i_o_n_s, _e_x_c_e_p_t for  the  those  with
+                              corresponding bits in the file mode
+                              creation mask.
+
+                              If _w_h_o is  present,  add  the  file
+                              mode  bits  represented  by _p_e_r_m_i_s_-
+                              _s_i_o_n_s.
+
+                    Unlike other symbolic operations,  =  has  an
+                    absolute  effect  in that it resets all other
+                    bits represented by  _w_h_o.   Omitting  _p_e_r_m_i_s_-
+                    _s_i_o_n_s  is useful only with = to take away all
+                    permissions.
+
+          _p_e_r_m_i_s_s_i_o_n
+                    any compatible combination of  the  following
+                    letters:
+
+                    r         read permission
+
+
+
+SunOS 5.6            Last change: 1 Feb 1995                    3
+
+
+
+
+
+
+User Commands                                            chmod(1)
+
+
+
+                    w         write permission
+                    x         execute permission
+                    l         mandatory locking
+                    s         user or group set-ID
+                    t         sticky bit
+                    u,g,o     indicate that _p_e_r_m_i_s_s_i_o_n is  to  be
+                              taken  from the current user, group
+                              or other mode respectively.
+
+                    Permissions to a file may vary  depending  on
+                    your  user  identification  number  (UID)  or
+                    group identification number  (GID).   Permis-
+                    sions  are  described in three sequences each
+                    having three characters:
+
+                         User    Group    Other
+                         rwx     rwx      rwx
+
+                    This example (user,  group,  and  others  all
+                    have permission to read, write, and execute a
+                    given file) demonstrates two  categories  for
+                    granting  permissions:   the access class and
+                    the permissions themselves.
+
+                    The letter s is only meaningful with u or  g,
+                    and t only works with u.
+
+                    Mandatory file and record locking (l)  refers
+                    to  a  file's  ability to have its reading or
+                    writing permissions locked while a program is
+                    accessing that file.
+
+                    In a directory which has the set-group-ID bit
+                    set  (reflected  as either -----s--- or -----
+                    l--- in the output of 'ls  -ld'),  files  and
+                    subdirectories  are created with the group-ID
+                    of the parent directory-not that  of  current
+                    process.
+
+                    It is not possible to permit group  execution
+                    and  enable  a file to be locked on execution
+                    at the same time.  In  addition,  it  is  not
+                    possible  to turn on the set-group-ID bit and
+                    enable a file to be locked  on  execution  at
+                    the   same  time.   The  following  examples,
+                    therefore, are invalid and elicit error  mes-
+                    sages:
+
+                         chmod g+x,+l _f_i_l_e
+                         chmod g+s,+l _f_i_l_e
+
+                    Only the owner of a file or directory (or the
+
+
+
+SunOS 5.6            Last change: 1 Feb 1995                    4
+
+
+
+
+
+
+User Commands                                            chmod(1)
+
+
+
+                    super-user)   may   change   that  file's  or
+                    directory's mode.  Only  the  super-user  may
+                    set  the  sticky bit on a non-directory file.
+                    If you are not super-user,  chmod  will  mask
+                    the  sticky-bit but will not return an error.
+                    In order to turn  on  a  file's  set-group-ID
+                    bit, your own group ID must correspond to the
+                    file's and group execution must be set.
+
+OPTIONS
+     The following options are supported:
+
+     -f        Force.  chmod will not complain  if  it  fails  to
+               change the mode of a file.
+
+     -R        Recursively descend through  directory  arguments,
+               setting the mode for each file as described above.
+               When symbolic links are encountered, the  mode  of
+               the target file is changed, but no recursion takes
+               place.
+
+OPERANDS
+     The following operands are supported:
+
+     _m_o_d_e      Represents the change to be made to the file  mode
+               bits  of  each  file  named  by  one  of  the _f_i_l_e
+               operands; see DESCRIPTION.
+
+     _f_i_l_e      A path name of a file whose file mode bits are  to
+               be modified.
+
+USAGE
+     See largefile(5) for the  description  of  the  behavior  of
+     chmod  when  encountering  files  greater than or equal to 2
+     Gbyte (2**_3_1 bytes).
+
+EXAMPLES
+     Deny execute permission to everyone:
+
+          example% chmod a-x _f_i_l_e
+
+     Allow only read permission to everyone:
+
+          example% chmod 444 _f_i_l_e
+
+     Make a file readable and writable by the group and others:
+
+          example% chmod go+rw _f_i_l_e
+          example% chmod 066 _f_i_l_e
+
+     Cause a file to be locked during access:
+
+
+
+
+SunOS 5.6            Last change: 1 Feb 1995                    5
+
+
+
+
+
+
+User Commands                                            chmod(1)
+
+
+
+          example% chmod +l _f_i_l_e
+
+     Allow everyone to read, write, and execute the file and turn
+     on the set group-ID.
+
+          example% chmod a=rwx,g+s _f_i_l_e
+          example% chmod 2777 _f_i_l_e
+
+ENVIRONMENT
+     See environ(5) for descriptions of the following environment
+     variables  that  affect  the  execution of chmod:  LC_CTYPE,
+     LC_MESSAGES, and NLSPATH.
+
+EXIT STATUS
+     The following exit values are returned:
+     0         Successful completion.
+     >0        An error occurred.
+
+ATTRIBUTES
+     See attributes(5) for descriptions of the  following  attri-
+     butes:
+
+     __________________________________
+    | ATTRIBUTE TYPE|  ATTRIBUTE VALUE|
+    |_______________________________|____________________________________|_
+    | Availability  |  SUNWcsu        |
+    | CSI           |  enabled        |
+    |________________|__________________|
+
+SEE ALSO
+     ls(1), chmod(2), attributes(5), environ(5), largefile(5)
+
+NOTES
+     Absolute changes don't work for the set-group-ID  bit  of  a
+     directory.  You must use g+s or g-s.
+
+     chmod permits you to produce useless modes so long  as  they
+     are  not  illegal  (for instance, making a text file execut-
+     able).  chmod does not check the file type to see if  manda-
+     tory locking is meaningful.
+
+     If the filesystem is mounted with the _n_o_s_u_i_d option,  _s_e_t_u_i_d
+     execution is not allowed.
+
+
+
+
+
+
+
+
+
+
+
+
+SunOS 5.6            Last change: 1 Feb 1995                    6
+
+
+

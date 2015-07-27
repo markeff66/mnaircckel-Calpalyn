@@ -1,0 +1,3409 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: CalPalyn Version 2.1
+%%CreationDate: Fri Oct 09  7:46:04 PM 2009
+%%BoundingBox: 0 0 612 792                                             
+%%LanguageLevel: 1
+%%EndComments
+% make sure the file begins with "%!" before you try and print it!
+/acutelines
+{
+/spacing exch def
+/angle exch def
+/x exch def
+/y exch def
+
+90 angle sub -1 mul rotate
+angle cos y mul -1 mul 0 translate
+0 spacing 
+angle cos y mul 90 angle sub cos x mul add
+{
+	0 moveto
+	0 angle sin y mul angle cos x mul add rlineto
+	stroke
+} for
+} def
+
+/obtuselines
+{
+/spacing exch def
+/angle exch def
+/x exch def
+/y exch def
+
+angle 90 sub rotate
+0 180 angle sub cos x mul -1 mul translate
+0 spacing 
+angle 90 sub sin y mul angle 90 sub cos x mul add
+{
+	0 moveto
+	0 angle 90 sub cos y mul 180 angle sub cos x mul add rlineto
+	stroke
+} for
+} def
+
+/setuserscreendict 22 dict def
+setuserscreendict begin
+	/tempctm matrix def
+	/temprot matrix def
+	/tempscale matrix def
+
+	/concatprocs
+	{
+		/proc2 exch cvlit def
+		/proc1 exch cvlit def
+		/newproc proc1 length proc2 length add array def
+
+		newproc 0 proc1 putinterval
+		newproc proc1 length proc2 putinterval
+		newproc cvx
+	} def
+
+	/resmatrix matrix def
+	/findresolution
+	{
+		72 0 resmatrix defaultmatrix dtransform
+		/yres exch def /xres exch def
+		xres dup mul yres dup mul add sqrt
+	} def
+end
+
+/setuserscreen
+{
+	setuserscreendict begin
+	/spotfunction exch def
+	/screenangle exch def
+	/cellsize exch def
+
+	/m tempctm currentmatrix def
+	/rm screenangle temprot rotate def
+	/sm cellsize dup tempscale scale def
+
+
+	sm rm m m concatmatrix m concatmatrix pop
+
+	1 0 m dtransform /y1 exch def /x1 exch def
+
+	/veclength x1 dup mul y1 dup mul add sqrt def
+	/frequency findresolution veclength div def
+
+	/newscreenangle y1 x1 atan def
+
+	m 2 get m 1 get mul m 0 get m 3 get mul sub 0 gt
+		
+		{{ neg } /spotfunction load concatprocs
+			/spotfunction exch def
+		}
+
+
+	frequency newscreenangle /spotfunction load
+		setscreen
+	end
+} def
+
+/setpatterndict 18 dict def
+setpatterndict begin
+	/bitison
+	{
+		/ybit exch def /xbit exch def
+		/bytevalue bstring ybit bwidth mul xbit 8 idiv
+			add get def
+		/mask 1 7 xbit 8 mod sub bitshift def
+		bytevalue mask and 0 ne
+	} def
+end
+
+/bitpatternspotfunction
+{
+	setpatterndict begin
+	/y exch def /x exch def
+	/xindex x 1 add 2 div bpside mul cvi def
+	/yindex y 1 add 2 div bpside mul cvi def
+
+	xindex yindex bitison
+	{ /onbits onbits 1 add def 1}
+	{ /offbits offbits 1 add def 0 }
+	ifelse
+
+	end
+} def
+
+/setpattern
+{
+	setpatterndict begin
+	/cellsz exch def
+	/angle exch def
+	/bwidth exch def
+	/bpside exch def
+	/bstring exch def
+
+	/onbits 0 def /offbits 0 def
+	cellsz angle /bitpatternspotfunction load
+		setuserscreen
+	{} settransfer
+	offbits offbits onbits add div setgray 
+	end
+} def
+
+/inch {72 mul} def
+
+/pat1 <d1e3c5885c3e1d88> def
+/pat2 <3e418080e3140808> def
+/pat3 <388387377830060e> def
+/rox  <000000001c003e007e003c00183c007e00fe00ee003c07003f803f8006000000> def
+/brix <1010101010101010101010101010ffff0101010101010101010101010101ffff> def
+/csand <00001c003e007f007f007f003e001c000038007c00fe00fe00fe007c00380000> def
+/msand <000018003c007e187e3c3c7e187e003c001806000f001f801f800f0006000000> def
+/silt <0000300078007830307800780030000000000c001e001e0c0c1e001e000c0000> def
+/fsilt <0002100038001002000700020020007000200100038001001000380010020007> def
+/flour <00000000100010007c481030103000480000000000080008903e600860089000> def
+/mystery <1e001fc017fcfff8fff0fff07ff07ff03ff31ff60ffc07f80030006000c00080> def
+/set_title {
+	/Helvetica findfont
+	18 scalefont setfont
+} def
+/set_CSZ {
+	/Times-Roman findfont
+	10 scalefont setfont
+} def
+/set_chrkey {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_chron {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_strat {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_depkey {
+	/Helvetica findfont
+	8 scalefont setfont
+} def
+/set_depth {
+	/Helvetica findfont
+	8 scalefont setfont
+} def
+/set_taxon {
+	/Times-Roman findfont
+	12 scalefont setfont
+} def
+/set_botnum {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_botlab {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_taxgrp {
+	/Times-Roman findfont
+	10 scalefont setfont
+} def
+/set_zonnum {
+	/Helvetica findfont
+	8 scalefont setfont
+} def
+/set_taxon-italic {
+	/Times-Italic findfont
+	12 scalefont setfont
+} def
+/set_taxgrp-italic {
+	/Times-Italic findfont
+	10 scalefont setfont
+} def
+/leading 9 def
+/leading_45 14 def
+/nstr 7 string def
+/lstr 30 string def
+0 setlinewidth
+90 rotate
+72 -540 translate
+0 396 moveto
+set_title (Big Soda Lake, Nevada                                                           @€) show
+% assign font for vertical label (e.g. Depth)
+set_depkey
+(Depth in cm. )
+dup stringwidth pop 2 div -1 mul 144.0 add -24 exch moveto
+90 rotate
+show
+-90 rotate
+% assign font for numbers on vertical axis
+set_depth
+0 0 moveto
+0 288.00 lineto
+0 288.00 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 288.00 moveto
+1 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 258.91 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 258.91 moveto
+11 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 229.82 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 229.82 moveto
+21 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 200.73 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 200.73 moveto
+31 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 171.64 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 171.64 moveto
+41 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 142.55 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 142.55 moveto
+51 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 113.45 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 113.45 moveto
+61 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 84.36 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 84.36 moveto
+71 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 55.27 moveto
+1 1 10 {
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 55.27 moveto
+81 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 26.18 moveto
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 -2.91 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 26.18 moveto
+91 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+stroke
+gsave
+0 0 moveto
+0 288.00 lineto
+34.86 288.00 lineto
+gsave
+stroke
+grestore
+44.80 285.09 lineto
+gsave
+stroke
+grestore
+41.50 282.18 lineto
+gsave
+stroke
+grestore
+38.53 279.27 lineto
+gsave
+stroke
+grestore
+42.75 276.36 lineto
+gsave
+stroke
+grestore
+38.86 273.45 lineto
+gsave
+stroke
+grestore
+36.39 270.55 lineto
+gsave
+stroke
+grestore
+42.42 267.64 lineto
+gsave
+stroke
+grestore
+36.99 261.82 lineto
+gsave
+stroke
+grestore
+39.47 256.00 lineto
+gsave
+stroke
+grestore
+37.51 250.18 lineto
+gsave
+stroke
+grestore
+39.74 247.27 lineto
+gsave
+stroke
+grestore
+39.52 244.36 lineto
+gsave
+stroke
+grestore
+43.40 238.55 lineto
+gsave
+stroke
+grestore
+41.21 232.73 lineto
+gsave
+stroke
+grestore
+45.21 218.18 lineto
+gsave
+stroke
+grestore
+38.46 209.45 lineto
+gsave
+stroke
+grestore
+39.02 203.64 lineto
+gsave
+stroke
+grestore
+39.67 192.00 lineto
+gsave
+stroke
+grestore
+38.87 174.55 lineto
+gsave
+stroke
+grestore
+38.81 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+45.21 0 lineto 
+8 leading_45 14 sub add 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Pinus          ) show
+-45 rotate
+8 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+8 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+20 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+40 nstr cvs dup stringwidth pop
+2 div
+32.40 exch sub -11 moveto
+show
+32.40 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+( % Total Pollen               ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+54.93 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+28.20 288.00 lineto
+gsave
+stroke
+grestore
+12.54 285.09 lineto
+gsave
+stroke
+grestore
+23.88 282.18 lineto
+gsave
+stroke
+grestore
+20.28 279.27 lineto
+gsave
+stroke
+grestore
+12.82 276.36 lineto
+gsave
+stroke
+grestore
+13.13 273.45 lineto
+gsave
+stroke
+grestore
+26.31 270.55 lineto
+gsave
+stroke
+grestore
+29.60 267.64 lineto
+gsave
+stroke
+grestore
+19.76 261.82 lineto
+gsave
+stroke
+grestore
+23.22 256.00 lineto
+gsave
+stroke
+grestore
+33.55 250.18 lineto
+gsave
+stroke
+grestore
+28.22 247.27 lineto
+gsave
+stroke
+grestore
+41.26 244.36 lineto
+gsave
+stroke
+grestore
+22.36 238.55 lineto
+gsave
+stroke
+grestore
+40.15 232.73 lineto
+gsave
+stroke
+grestore
+23.24 218.18 lineto
+gsave
+stroke
+grestore
+32.62 209.45 lineto
+gsave
+stroke
+grestore
+31.81 203.64 lineto
+gsave
+stroke
+grestore
+17.92 192.00 lineto
+gsave
+stroke
+grestore
+33.91 174.55 lineto
+gsave
+stroke
+grestore
+56.80 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+56.80 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Abies          ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+2 nstr cvs dup stringwidth pop
+2 div
+32.40 exch sub -11 moveto
+show
+32.40 -3 moveto
+0 6 rlineto
+3 nstr cvs dup stringwidth pop
+2 div
+48.60 exch sub -11 moveto
+show
+48.60 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+66.52 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+17.94 288.00 lineto
+gsave
+stroke
+grestore
+8.96 285.09 lineto
+gsave
+stroke
+grestore
+11.94 282.18 lineto
+gsave
+stroke
+grestore
+4.51 279.27 lineto
+gsave
+stroke
+grestore
+10.69 276.36 lineto
+gsave
+stroke
+grestore
+15.75 273.45 lineto
+gsave
+stroke
+grestore
+8.77 270.55 lineto
+gsave
+stroke
+grestore
+7.89 267.64 lineto
+gsave
+stroke
+grestore
+8.78 261.82 lineto
+gsave
+stroke
+grestore
+2.58 256.00 lineto
+gsave
+stroke
+grestore
+9.59 250.18 lineto
+gsave
+stroke
+grestore
+2.35 247.27 lineto
+gsave
+stroke
+grestore
+8.69 244.36 lineto
+gsave
+stroke
+grestore
+6.10 238.55 lineto
+gsave
+stroke
+grestore
+11.81 232.73 lineto
+gsave
+stroke
+grestore
+13.95 218.18 lineto
+gsave
+stroke
+grestore
+24.46 209.45 lineto
+gsave
+stroke
+grestore
+4.24 203.64 lineto
+gsave
+stroke
+grestore
+30.71 192.00 lineto
+gsave
+stroke
+grestore
+20.87 174.55 lineto
+gsave
+stroke
+grestore
+10.82 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+30.71 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(TCT            ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+40.43 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+10.25 288.00 lineto
+gsave
+stroke
+grestore
+0.00 285.09 lineto
+gsave
+stroke
+grestore
+5.97 282.18 lineto
+gsave
+stroke
+grestore
+0.00 279.27 lineto
+gsave
+stroke
+grestore
+0.00 276.36 lineto
+gsave
+stroke
+grestore
+0.00 273.45 lineto
+gsave
+stroke
+grestore
+0.00 270.55 lineto
+gsave
+stroke
+grestore
+0.00 267.64 lineto
+gsave
+stroke
+grestore
+0.00 261.82 lineto
+gsave
+stroke
+grestore
+0.00 256.00 lineto
+gsave
+stroke
+grestore
+0.00 250.18 lineto
+gsave
+stroke
+grestore
+0.00 247.27 lineto
+gsave
+stroke
+grestore
+0.00 244.36 lineto
+gsave
+stroke
+grestore
+0.00 238.55 lineto
+gsave
+stroke
+grestore
+0.00 232.73 lineto
+gsave
+stroke
+grestore
+0.00 218.18 lineto
+gsave
+stroke
+grestore
+0.00 209.45 lineto
+gsave
+stroke
+grestore
+0.00 203.64 lineto
+gsave
+stroke
+grestore
+0.00 192.00 lineto
+gsave
+stroke
+grestore
+7.83 174.55 lineto
+gsave
+stroke
+grestore
+0.00 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+16.20 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Pseudostuga    ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+25.92 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+5.13 288.00 lineto
+gsave
+stroke
+grestore
+5.38 285.09 lineto
+gsave
+stroke
+grestore
+5.97 282.18 lineto
+gsave
+stroke
+grestore
+9.01 279.27 lineto
+gsave
+stroke
+grestore
+8.55 276.36 lineto
+gsave
+stroke
+grestore
+7.88 273.45 lineto
+gsave
+stroke
+grestore
+10.96 270.55 lineto
+gsave
+stroke
+grestore
+9.87 267.64 lineto
+gsave
+stroke
+grestore
+0.00 261.82 lineto
+gsave
+stroke
+grestore
+2.58 256.00 lineto
+gsave
+stroke
+grestore
+16.78 250.18 lineto
+gsave
+stroke
+grestore
+9.41 247.27 lineto
+gsave
+stroke
+grestore
+4.34 244.36 lineto
+gsave
+stroke
+grestore
+16.26 238.55 lineto
+gsave
+stroke
+grestore
+16.53 232.73 lineto
+gsave
+stroke
+grestore
+16.27 218.18 lineto
+gsave
+stroke
+grestore
+5.44 209.45 lineto
+gsave
+stroke
+grestore
+4.24 203.64 lineto
+gsave
+stroke
+grestore
+7.68 192.00 lineto
+gsave
+stroke
+grestore
+10.44 174.55 lineto
+gsave
+stroke
+grestore
+5.41 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+16.78 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Tsuga          ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+26.50 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+0.00 288.00 lineto
+gsave
+stroke
+grestore
+0.00 285.09 lineto
+gsave
+stroke
+grestore
+0.00 282.18 lineto
+gsave
+stroke
+grestore
+0.00 279.27 lineto
+gsave
+stroke
+grestore
+0.00 276.36 lineto
+gsave
+stroke
+grestore
+0.00 273.45 lineto
+gsave
+stroke
+grestore
+0.00 270.55 lineto
+gsave
+stroke
+grestore
+0.00 267.64 lineto
+gsave
+stroke
+grestore
+2.20 261.82 lineto
+gsave
+stroke
+grestore
+0.00 256.00 lineto
+gsave
+stroke
+grestore
+0.00 250.18 lineto
+gsave
+stroke
+grestore
+0.00 247.27 lineto
+gsave
+stroke
+grestore
+0.00 244.36 lineto
+gsave
+stroke
+grestore
+0.00 238.55 lineto
+gsave
+stroke
+grestore
+0.00 232.73 lineto
+gsave
+stroke
+grestore
+0.00 218.18 lineto
+gsave
+stroke
+grestore
+0.00 209.45 lineto
+gsave
+stroke
+grestore
+0.00 203.64 lineto
+gsave
+stroke
+grestore
+0.00 192.00 lineto
+gsave
+stroke
+grestore
+0.00 174.55 lineto
+gsave
+stroke
+grestore
+0.00 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+16.20 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Ephedra        ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+25.92 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+33.32 288.00 lineto
+gsave
+stroke
+grestore
+20.61 285.09 lineto
+gsave
+stroke
+grestore
+23.88 282.18 lineto
+gsave
+stroke
+grestore
+30.42 279.27 lineto
+gsave
+stroke
+grestore
+34.20 276.36 lineto
+gsave
+stroke
+grestore
+35.45 273.45 lineto
+gsave
+stroke
+grestore
+26.31 270.55 lineto
+gsave
+stroke
+grestore
+27.63 267.64 lineto
+gsave
+stroke
+grestore
+27.44 261.82 lineto
+gsave
+stroke
+grestore
+9.03 256.00 lineto
+gsave
+stroke
+grestore
+25.16 250.18 lineto
+gsave
+stroke
+grestore
+12.93 247.27 lineto
+gsave
+stroke
+grestore
+21.72 244.36 lineto
+gsave
+stroke
+grestore
+24.39 238.55 lineto
+gsave
+stroke
+grestore
+14.17 232.73 lineto
+gsave
+stroke
+grestore
+15.11 218.18 lineto
+gsave
+stroke
+grestore
+35.34 209.45 lineto
+gsave
+stroke
+grestore
+20.14 203.64 lineto
+gsave
+stroke
+grestore
+25.59 192.00 lineto
+gsave
+stroke
+grestore
+28.70 174.55 lineto
+gsave
+stroke
+grestore
+14.88 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+35.45 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Quercus        ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+2 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+4 nstr cvs dup stringwidth pop
+2 div
+32.40 exch sub -11 moveto
+show
+32.40 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+45.17 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+12.82 288.00 lineto
+gsave
+stroke
+grestore
+7.17 285.09 lineto
+gsave
+stroke
+grestore
+3.98 282.18 lineto
+gsave
+stroke
+grestore
+15.77 279.27 lineto
+gsave
+stroke
+grestore
+8.55 276.36 lineto
+gsave
+stroke
+grestore
+7.88 273.45 lineto
+gsave
+stroke
+grestore
+10.96 270.55 lineto
+gsave
+stroke
+grestore
+11.84 267.64 lineto
+gsave
+stroke
+grestore
+10.98 261.82 lineto
+gsave
+stroke
+grestore
+5.16 256.00 lineto
+gsave
+stroke
+grestore
+7.19 250.18 lineto
+gsave
+stroke
+grestore
+0.00 247.27 lineto
+gsave
+stroke
+grestore
+10.86 244.36 lineto
+gsave
+stroke
+grestore
+16.26 238.55 lineto
+gsave
+stroke
+grestore
+0.00 232.73 lineto
+gsave
+stroke
+grestore
+0.00 218.18 lineto
+gsave
+stroke
+grestore
+19.03 209.45 lineto
+gsave
+stroke
+grestore
+2.12 203.64 lineto
+gsave
+stroke
+grestore
+12.80 192.00 lineto
+gsave
+stroke
+grestore
+15.65 174.55 lineto
+gsave
+stroke
+grestore
+0.00 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+19.03 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon
+(RRA             ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+28.75 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+10.25 288.00 lineto
+gsave
+stroke
+grestore
+1.79 285.09 lineto
+gsave
+stroke
+grestore
+1.99 282.18 lineto
+gsave
+stroke
+grestore
+6.76 279.27 lineto
+gsave
+stroke
+grestore
+6.41 276.36 lineto
+gsave
+stroke
+grestore
+10.50 273.45 lineto
+gsave
+stroke
+grestore
+17.54 270.55 lineto
+gsave
+stroke
+grestore
+5.92 267.64 lineto
+gsave
+stroke
+grestore
+13.17 261.82 lineto
+gsave
+stroke
+grestore
+2.58 256.00 lineto
+gsave
+stroke
+grestore
+9.59 250.18 lineto
+gsave
+stroke
+grestore
+18.81 247.27 lineto
+gsave
+stroke
+grestore
+17.37 244.36 lineto
+gsave
+stroke
+grestore
+12.20 238.55 lineto
+gsave
+stroke
+grestore
+2.36 232.73 lineto
+gsave
+stroke
+grestore
+9.30 218.18 lineto
+gsave
+stroke
+grestore
+5.44 209.45 lineto
+gsave
+stroke
+grestore
+8.48 203.64 lineto
+gsave
+stroke
+grestore
+7.68 192.00 lineto
+gsave
+stroke
+grestore
+5.22 174.55 lineto
+gsave
+stroke
+grestore
+13.52 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+18.81 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Salix          ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+28.53 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+41.01 288.00 lineto
+gsave
+stroke
+grestore
+40.77 285.09 lineto
+gsave
+stroke
+grestore
+48.26 282.18 lineto
+gsave
+stroke
+grestore
+52.39 279.27 lineto
+gsave
+stroke
+grestore
+34.20 276.36 lineto
+gsave
+stroke
+grestore
+42.67 273.45 lineto
+gsave
+stroke
+grestore
+41.10 270.55 lineto
+gsave
+stroke
+grestore
+37.49 267.64 lineto
+gsave
+stroke
+grestore
+45.55 261.82 lineto
+gsave
+stroke
+grestore
+43.21 256.00 lineto
+gsave
+stroke
+grestore
+40.14 250.18 lineto
+gsave
+stroke
+grestore
+44.09 247.27 lineto
+gsave
+stroke
+grestore
+53.21 244.36 lineto
+gsave
+stroke
+grestore
+27.95 238.55 lineto
+gsave
+stroke
+grestore
+41.92 232.73 lineto
+gsave
+stroke
+grestore
+29.63 218.18 lineto
+gsave
+stroke
+grestore
+34.66 209.45 lineto
+gsave
+stroke
+grestore
+31.28 203.64 lineto
+gsave
+stroke
+grestore
+31.99 192.00 lineto
+gsave
+stroke
+grestore
+33.26 174.55 lineto
+gsave
+stroke
+grestore
+35.16 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+53.21 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Artemisia      ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+4 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+8 nstr cvs dup stringwidth pop
+2 div
+32.40 exch sub -11 moveto
+show
+32.40 -3 moveto
+0 6 rlineto
+12 nstr cvs dup stringwidth pop
+2 div
+48.60 exch sub -11 moveto
+show
+48.60 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+62.93 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+7.69 288.00 lineto
+gsave
+stroke
+grestore
+7.17 285.09 lineto
+gsave
+stroke
+grestore
+47.77 282.18 lineto
+gsave
+stroke
+grestore
+24.79 279.27 lineto
+gsave
+stroke
+grestore
+21.37 276.36 lineto
+gsave
+stroke
+grestore
+36.76 273.45 lineto
+gsave
+stroke
+grestore
+24.11 270.55 lineto
+gsave
+stroke
+grestore
+35.52 267.64 lineto
+gsave
+stroke
+grestore
+21.95 261.82 lineto
+gsave
+stroke
+grestore
+23.22 256.00 lineto
+gsave
+stroke
+grestore
+26.36 250.18 lineto
+gsave
+stroke
+grestore
+42.32 247.27 lineto
+gsave
+stroke
+grestore
+13.03 244.36 lineto
+gsave
+stroke
+grestore
+20.33 238.55 lineto
+gsave
+stroke
+grestore
+18.89 232.73 lineto
+gsave
+stroke
+grestore
+34.86 218.18 lineto
+gsave
+stroke
+grestore
+16.31 209.45 lineto
+gsave
+stroke
+grestore
+16.96 203.64 lineto
+gsave
+stroke
+grestore
+17.92 192.00 lineto
+gsave
+stroke
+grestore
+10.44 174.55 lineto
+gsave
+stroke
+grestore
+10.82 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+47.77 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon
+(COMPOSITAE      ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+1 0 0 setrgbcolor fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+2 nstr cvs dup stringwidth pop
+2 div
+32.40 exch sub -11 moveto
+show
+32.40 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+57.49 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+0 9 translate
+0 276.09 moveto
+14.10 276.09 lineto
+14.10 281.91 lineto
+0 281.91 lineto
+0 276.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 273.18 moveto
+7.17 273.18 lineto
+7.17 279.00 lineto
+0 279.00 lineto
+0 273.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 270.27 moveto
+1.00 270.27 lineto
+1.00 276.09 lineto
+0 276.09 lineto
+0 270.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 267.36 moveto
+1.13 267.36 lineto
+1.13 273.18 lineto
+0 273.18 lineto
+0 267.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 264.45 moveto
+1.07 264.45 lineto
+1.07 270.27 lineto
+0 270.27 lineto
+0 264.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 261.55 moveto
+0.00 261.55 lineto
+0.00 267.36 lineto
+0 267.36 lineto
+0 261.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 258.64 moveto
+3.29 258.64 lineto
+3.29 264.45 lineto
+0 264.45 lineto
+0 258.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 255.73 moveto
+0.00 255.73 lineto
+0.00 261.55 lineto
+0 261.55 lineto
+0 255.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 249.91 moveto
+1.10 249.91 lineto
+1.10 255.73 lineto
+0 255.73 lineto
+0 249.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 244.09 moveto
+0.00 244.09 lineto
+0.00 249.91 lineto
+0 249.91 lineto
+0 244.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 238.27 moveto
+0.00 238.27 lineto
+0.00 244.09 lineto
+0 244.09 lineto
+0 238.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 235.36 moveto
+0.00 235.36 lineto
+0.00 241.18 lineto
+0 241.18 lineto
+0 235.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 232.45 moveto
+0.00 232.45 lineto
+0.00 238.27 lineto
+0 238.27 lineto
+0 232.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 226.64 moveto
+0.00 226.64 lineto
+0.00 232.45 lineto
+0 232.45 lineto
+0 226.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 220.82 moveto
+0.00 220.82 lineto
+0.00 226.64 lineto
+0 226.64 lineto
+0 220.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 206.27 moveto
+0.00 206.27 lineto
+0.00 212.09 lineto
+0 212.09 lineto
+0 206.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 197.55 moveto
+0.00 197.55 lineto
+0.00 203.36 lineto
+0 203.36 lineto
+0 197.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 191.73 moveto
+0.00 191.73 lineto
+0.00 197.55 lineto
+0 197.55 lineto
+0 191.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 180.09 moveto
+0.00 180.09 lineto
+0.00 185.91 lineto
+0 185.91 lineto
+0 180.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 162.64 moveto
+0.00 162.64 lineto
+0.00 168.45 lineto
+0 168.45 lineto
+0 162.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 148.09 moveto
+0.00 148.09 lineto
+0.00 153.91 lineto
+0 153.91 lineto
+0 148.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -11.91 moveto
+0.00 -11.91 lineto
+0.00 -6.09 lineto
+0 -6.09 lineto
+0 -11.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -9 translate
+0 0 moveto
+0 0 lineto
+16.20 0 lineto 
+stroke
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Salsola        ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon-italic
+(kali           ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+2 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+25.92 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+0 9 translate
+0 276.09 moveto
+7.69 276.09 lineto
+7.69 281.91 lineto
+0 281.91 lineto
+0 276.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 273.18 moveto
+2.69 273.18 lineto
+2.69 279.00 lineto
+0 279.00 lineto
+0 273.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 270.27 moveto
+0.00 270.27 lineto
+0.00 276.09 lineto
+0 276.09 lineto
+0 270.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 267.36 moveto
+1.13 267.36 lineto
+1.13 273.18 lineto
+0 273.18 lineto
+0 267.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 264.45 moveto
+0.00 264.45 lineto
+0.00 270.27 lineto
+0 270.27 lineto
+0 264.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 261.55 moveto
+0.00 261.55 lineto
+0.00 267.36 lineto
+0 267.36 lineto
+0 261.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 258.64 moveto
+0.00 258.64 lineto
+0.00 264.45 lineto
+0 264.45 lineto
+0 258.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 255.73 moveto
+0.00 255.73 lineto
+0.00 261.55 lineto
+0 261.55 lineto
+0 255.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 249.91 moveto
+0.00 249.91 lineto
+0.00 255.73 lineto
+0 255.73 lineto
+0 249.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 244.09 moveto
+0.00 244.09 lineto
+0.00 249.91 lineto
+0 249.91 lineto
+0 244.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 238.27 moveto
+0.00 238.27 lineto
+0.00 244.09 lineto
+0 244.09 lineto
+0 238.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 235.36 moveto
+0.00 235.36 lineto
+0.00 241.18 lineto
+0 241.18 lineto
+0 235.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 232.45 moveto
+0.00 232.45 lineto
+0.00 238.27 lineto
+0 238.27 lineto
+0 232.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 226.64 moveto
+0.00 226.64 lineto
+0.00 232.45 lineto
+0 232.45 lineto
+0 226.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 220.82 moveto
+0.00 220.82 lineto
+0.00 226.64 lineto
+0 226.64 lineto
+0 220.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 206.27 moveto
+0.00 206.27 lineto
+0.00 212.09 lineto
+0 212.09 lineto
+0 206.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 197.55 moveto
+0.00 197.55 lineto
+0.00 203.36 lineto
+0 203.36 lineto
+0 197.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 191.73 moveto
+0.00 191.73 lineto
+0.00 197.55 lineto
+0 197.55 lineto
+0 191.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 180.09 moveto
+0.00 180.09 lineto
+0.00 185.91 lineto
+0 185.91 lineto
+0 180.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 162.64 moveto
+0.00 162.64 lineto
+0.00 168.45 lineto
+0 168.45 lineto
+0 162.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 148.09 moveto
+0.00 148.09 lineto
+0.00 153.91 lineto
+0 153.91 lineto
+0 148.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -11.91 moveto
+0.00 -11.91 lineto
+0.00 -6.09 lineto
+0 -6.09 lineto
+0 -11.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -9 translate
+0 0 moveto
+0 0 lineto
+16.20 0 lineto 
+stroke
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Plantago       ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon-italic
+(lanceolata     ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+2 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+25.92 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+0 9 translate
+0 276.09 moveto
+0.00 276.09 lineto
+0.00 281.91 lineto
+0 281.91 lineto
+0 276.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 273.18 moveto
+1.79 273.18 lineto
+1.79 279.00 lineto
+0 279.00 lineto
+0 273.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 270.27 moveto
+0.00 270.27 lineto
+0.00 276.09 lineto
+0 276.09 lineto
+0 270.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 267.36 moveto
+0.00 267.36 lineto
+0.00 273.18 lineto
+0 273.18 lineto
+0 267.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 264.45 moveto
+0.00 264.45 lineto
+0.00 270.27 lineto
+0 270.27 lineto
+0 264.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 261.55 moveto
+0.00 261.55 lineto
+0.00 267.36 lineto
+0 267.36 lineto
+0 261.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 258.64 moveto
+0.00 258.64 lineto
+0.00 264.45 lineto
+0 264.45 lineto
+0 258.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 255.73 moveto
+0.00 255.73 lineto
+0.00 261.55 lineto
+0 261.55 lineto
+0 255.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 249.91 moveto
+0.00 249.91 lineto
+0.00 255.73 lineto
+0 255.73 lineto
+0 249.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 244.09 moveto
+0.00 244.09 lineto
+0.00 249.91 lineto
+0 249.91 lineto
+0 244.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 238.27 moveto
+0.00 238.27 lineto
+0.00 244.09 lineto
+0 244.09 lineto
+0 238.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 235.36 moveto
+0.00 235.36 lineto
+0.00 241.18 lineto
+0 241.18 lineto
+0 235.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 232.45 moveto
+0.00 232.45 lineto
+0.00 238.27 lineto
+0 238.27 lineto
+0 232.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 226.64 moveto
+0.00 226.64 lineto
+0.00 232.45 lineto
+0 232.45 lineto
+0 226.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 220.82 moveto
+0.00 220.82 lineto
+0.00 226.64 lineto
+0 226.64 lineto
+0 220.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 206.27 moveto
+0.00 206.27 lineto
+0.00 212.09 lineto
+0 212.09 lineto
+0 206.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 197.55 moveto
+0.00 197.55 lineto
+0.00 203.36 lineto
+0 203.36 lineto
+0 197.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 191.73 moveto
+0.00 191.73 lineto
+0.00 197.55 lineto
+0 197.55 lineto
+0 191.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 180.09 moveto
+0.00 180.09 lineto
+0.00 185.91 lineto
+0 185.91 lineto
+0 180.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 162.64 moveto
+0.00 162.64 lineto
+0.00 168.45 lineto
+0 168.45 lineto
+0 162.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 148.09 moveto
+0.00 148.09 lineto
+0.00 153.91 lineto
+0 153.91 lineto
+0 148.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -11.91 moveto
+0.00 -11.91 lineto
+0.00 -6.09 lineto
+0 -6.09 lineto
+0 -11.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -9 translate
+0 0 moveto
+0 0 lineto
+16.20 0 lineto 
+stroke
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Rumex          ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon-italic
+(acetosella     ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+1 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+25.92 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+21.79 288.00 lineto
+gsave
+stroke
+grestore
+16.13 285.09 lineto
+gsave
+stroke
+grestore
+11.94 282.18 lineto
+gsave
+stroke
+grestore
+21.41 279.27 lineto
+gsave
+stroke
+grestore
+18.17 276.36 lineto
+gsave
+stroke
+grestore
+31.51 273.45 lineto
+gsave
+stroke
+grestore
+17.54 270.55 lineto
+gsave
+stroke
+grestore
+19.73 267.64 lineto
+gsave
+stroke
+grestore
+25.24 261.82 lineto
+gsave
+stroke
+grestore
+14.19 256.00 lineto
+gsave
+stroke
+grestore
+19.17 250.18 lineto
+gsave
+stroke
+grestore
+10.58 247.27 lineto
+gsave
+stroke
+grestore
+16.29 244.36 lineto
+gsave
+stroke
+grestore
+17.28 238.55 lineto
+gsave
+stroke
+grestore
+16.53 232.73 lineto
+gsave
+stroke
+grestore
+5.81 218.18 lineto
+gsave
+stroke
+grestore
+21.75 209.45 lineto
+gsave
+stroke
+grestore
+23.33 203.64 lineto
+gsave
+stroke
+grestore
+30.71 192.00 lineto
+gsave
+stroke
+grestore
+23.48 174.55 lineto
+gsave
+stroke
+grestore
+8.11 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+31.51 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon
+(GRAMINEAE       ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+0.3 setgray fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+2 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+41.23 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+43.58 288.00 lineto
+gsave
+stroke
+grestore
+34.77 285.09 lineto
+gsave
+stroke
+grestore
+37.42 282.18 lineto
+gsave
+stroke
+grestore
+42.81 279.27 lineto
+gsave
+stroke
+grestore
+39.75 276.36 lineto
+gsave
+stroke
+grestore
+43.59 273.45 lineto
+gsave
+stroke
+grestore
+47.79 270.55 lineto
+gsave
+stroke
+grestore
+39.07 267.64 lineto
+gsave
+stroke
+grestore
+50.05 261.82 lineto
+gsave
+stroke
+grestore
+54.69 256.00 lineto
+gsave
+stroke
+grestore
+48.41 250.18 lineto
+gsave
+stroke
+grestore
+52.20 247.27 lineto
+gsave
+stroke
+grestore
+41.26 244.36 lineto
+gsave
+stroke
+grestore
+43.50 238.55 lineto
+gsave
+stroke
+grestore
+51.01 232.73 lineto
+gsave
+stroke
+grestore
+49.28 218.18 lineto
+gsave
+stroke
+grestore
+57.08 209.45 lineto
+gsave
+stroke
+grestore
+63.19 203.64 lineto
+gsave
+stroke
+grestore
+47.09 192.00 lineto
+gsave
+stroke
+grestore
+52.18 174.55 lineto
+gsave
+stroke
+grestore
+42.73 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+63.19 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon
+(CHENOPODIACEAE  ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+0.3 setgray fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+5 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+10 nstr cvs dup stringwidth pop
+2 div
+32.40 exch sub -11 moveto
+show
+32.40 -3 moveto
+0 6 rlineto
+15 nstr cvs dup stringwidth pop
+2 div
+48.60 exch sub -11 moveto
+show
+48.60 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+72.91 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+41.53 288.00 lineto
+gsave
+stroke
+grestore
+34.77 285.09 lineto
+gsave
+stroke
+grestore
+23.48 282.18 lineto
+gsave
+stroke
+grestore
+26.14 279.27 lineto
+gsave
+stroke
+grestore
+37.62 276.36 lineto
+gsave
+stroke
+grestore
+33.08 273.45 lineto
+gsave
+stroke
+grestore
+40.77 270.55 lineto
+gsave
+stroke
+grestore
+29.20 267.64 lineto
+gsave
+stroke
+grestore
+33.37 261.82 lineto
+gsave
+stroke
+grestore
+39.73 256.00 lineto
+gsave
+stroke
+grestore
+33.55 250.18 lineto
+gsave
+stroke
+grestore
+28.22 247.27 lineto
+gsave
+stroke
+grestore
+33.01 244.36 lineto
+gsave
+stroke
+grestore
+32.52 238.55 lineto
+gsave
+stroke
+grestore
+32.12 232.73 lineto
+gsave
+stroke
+grestore
+31.61 218.18 lineto
+gsave
+stroke
+grestore
+27.18 209.45 lineto
+gsave
+stroke
+grestore
+30.11 203.64 lineto
+gsave
+stroke
+grestore
+37.88 192.00 lineto
+gsave
+stroke
+grestore
+33.91 174.55 lineto
+gsave
+stroke
+grestore
+49.76 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+49.76 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Sacrobatus     ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+0.3 setgray fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+5 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+10 nstr cvs dup stringwidth pop
+2 div
+32.40 exch sub -11 moveto
+show
+32.40 -3 moveto
+0 6 rlineto
+15 nstr cvs dup stringwidth pop
+2 div
+48.60 exch sub -11 moveto
+show
+48.60 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+59.48 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+19.23 288.00 lineto
+gsave
+stroke
+grestore
+17.02 285.09 lineto
+gsave
+stroke
+grestore
+12.94 282.18 lineto
+gsave
+stroke
+grestore
+11.27 279.27 lineto
+gsave
+stroke
+grestore
+7.48 276.36 lineto
+gsave
+stroke
+grestore
+5.25 273.45 lineto
+gsave
+stroke
+grestore
+7.67 270.55 lineto
+gsave
+stroke
+grestore
+2.96 267.64 lineto
+gsave
+stroke
+grestore
+6.59 261.82 lineto
+gsave
+stroke
+grestore
+2.58 256.00 lineto
+gsave
+stroke
+grestore
+17.97 250.18 lineto
+gsave
+stroke
+grestore
+2.35 247.27 lineto
+gsave
+stroke
+grestore
+6.51 244.36 lineto
+gsave
+stroke
+grestore
+10.16 238.55 lineto
+gsave
+stroke
+grestore
+0.00 232.73 lineto
+gsave
+stroke
+grestore
+0.00 218.18 lineto
+gsave
+stroke
+grestore
+0.00 209.45 lineto
+gsave
+stroke
+grestore
+6.36 203.64 lineto
+gsave
+stroke
+grestore
+6.40 192.00 lineto
+gsave
+stroke
+grestore
+10.44 174.55 lineto
+gsave
+stroke
+grestore
+8.11 160.00 lineto
+gsave
+stroke
+grestore
+0.00 0.00 lineto
+gsave
+stroke
+grestore
+0 0 lineto
+19.23 0 lineto 
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon
+(CYPERACEAE      ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+gsave
+0.3 setgray fill
+grestore
+stroke
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+2 nstr cvs dup stringwidth pop
+2 div
+16.20 exch sub -11 moveto
+show
+16.20 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+28.95 0 translate
+stroke
+grestore
+% assign font for taxon group labels
+set_taxgrp
+-7 296.00 moveto
+45 rotate
+90 0 rlineto
+-45 rotate
+9 0 rlineto
+9 -3 rmoveto
+(TREES) show
+9 3 rmoveto
+444.58 359.64 lineto
+45 rotate
+-90 0 rlineto
+-45 rotate
+stroke
+405.58 0 translate
+-7 296.00 moveto
+45 rotate
+90 0 rlineto
+-45 rotate
+9 0 rlineto
+9 -3 rmoveto
+(TREES) show
+9 3 rmoveto
+215.48 359.64 lineto
+45 rotate
+-90 0 rlineto
+-45 rotate
+stroke
+176.48 0 translate
+-7 296.00 moveto
+45 rotate
+90 0 rlineto
+-45 rotate
+9 0 rlineto
+9 -3 rmoveto
+(TREES) show
+9 3 rmoveto
+200.34 359.64 lineto
+45 rotate
+-90 0 rlineto
+-45 rotate
+stroke
+161.34 0 translate
+stroke
+showpage

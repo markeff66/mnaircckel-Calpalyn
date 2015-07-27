@@ -1,0 +1,159 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: CalPalyn Version 2.1
+%%CreationDate: Fri Oct 09  3:27:30 PM 2009
+%%BoundingBox: 0 0 612 792                                             
+%%LanguageLevel: 1
+%%EndComments
+% make sure the file begins with "%!" before you try and print it!
+/acutelines
+{
+/spacing exch def
+/angle exch def
+/x exch def
+/y exch def
+
+90 angle sub -1 mul rotate
+angle cos y mul -1 mul 0 translate
+0 spacing 
+angle cos y mul 90 angle sub cos x mul add
+{
+	0 moveto
+	0 angle sin y mul angle cos x mul add rlineto
+	stroke
+} for
+} def
+
+/obtuselines
+{
+/spacing exch def
+/angle exch def
+/x exch def
+/y exch def
+
+angle 90 sub rotate
+0 180 angle sub cos x mul -1 mul translate
+0 spacing 
+angle 90 sub sin y mul angle 90 sub cos x mul add
+{
+	0 moveto
+	0 angle 90 sub cos y mul 180 angle sub cos x mul add rlineto
+	stroke
+} for
+} def
+
+/setuserscreendict 22 dict def
+setuserscreendict begin
+	/tempctm matrix def
+	/temprot matrix def
+	/tempscale matrix def
+
+	/concatprocs
+	{
+		/proc2 exch cvlit def
+		/proc1 exch cvlit def
+		/newproc proc1 length proc2 length add array def
+
+		newproc 0 proc1 putinterval
+		newproc proc1 length proc2 putinterval
+		newproc cvx
+	} def
+
+	/resmatrix matrix def
+	/findresolution
+	{
+		72 0 resmatrix defaultmatrix dtransform
+		/yres exch def /xres exch def
+		xres dup mul yres dup mul add sqrt
+	} def
+end
+
+/setuserscreen
+{
+	setuserscreendict begin
+	/spotfunction exch def
+	/screenangle exch def
+	/cellsize exch def
+
+	/m tempctm currentmatrix def
+	/rm screenangle temprot rotate def
+	/sm cellsize dup tempscale scale def
+
+
+	sm rm m m concatmatrix m concatmatrix pop
+
+	1 0 m dtransform /y1 exch def /x1 exch def
+
+	/veclength x1 dup mul y1 dup mul add sqrt def
+	/frequency findresolution veclength div def
+
+	/newscreenangle y1 x1 atan def
+
+	m 2 get m 1 get mul m 0 get m 3 get mul sub 0 gt
+		
+		{{ neg } /spotfunction load concatprocs
+			/spotfunction exch def
+		}
+
+
+	frequency newscreenangle /spotfunction load
+		setscreen
+	end
+} def
+
+/setpatterndict 18 dict def
+setpatterndict begin
+	/bitison
+	{
+		/ybit exch def /xbit exch def
+		/bytevalue bstring ybit bwidth mul xbit 8 idiv
+			add get def
+		/mask 1 7 xbit 8 mod sub bitshift def
+		bytevalue mask and 0 ne
+	} def
+end
+
+/bitpatternspotfunction
+{
+	setpatterndict begin
+	/y exch def /x exch def
+	/xindex x 1 add 2 div bpside mul cvi def
+	/yindex y 1 add 2 div bpside mul cvi def
+
+	xindex yindex bitison
+	{ /onbits onbits 1 add def 1}
+	{ /offbits offbits 1 add def 0 }
+	ifelse
+
+	end
+} def
+
+/setpattern
+{
+	setpatterndict begin
+	/cellsz exch def
+	/angle exch def
+	/bwidth exch def
+	/bpside exch def
+	/bstring exch def
+
+	/onbits 0 def /offbits 0 def
+	cellsz angle /bitpatternspotfunction load
+		setuserscreen
+	{} settransfer
+	offbits offbits onbits add div setgray 
+	end
+} def
+
+/inch {72 mul} def
+
+/pat1 <d1e3c5885c3e1d88> def
+/pat2 <3e418080e3140808> def
+/pat3 <388387377830060e> def
+/rox  <000000001c003e007e003c00183c007e00fe00ee003c07003f803f8006000000> def
+/brix <1010101010101010101010101010ffff0101010101010101010101010101ffff> def
+/csand <00001c003e007f007f007f003e001c000038007c00fe00fe00fe007c00380000> def
+/msand <000018003c007e187e3c3c7e187e003c001806000f001f801f800f0006000000> def
+/silt <0000300078007830307800780030000000000c001e001e0c0c1e001e000c0000> def
+/fsilt <0002100038001002000700020020007000200100038001001000380010020007> def
+/flour <00000000100010007c481030103000480000000000080008903e600860089000> def
+/mystery <1e001fc017fcfff8fff0fff07ff07ff03ff31ff60ffc07f80030006000c00080> def

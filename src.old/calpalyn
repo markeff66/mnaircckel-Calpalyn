@@ -1,0 +1,176 @@
+-9999 Total            Pollen and       Spores          |
+-9998 Subtotal:       |Aquatics        |                |
+-9997 Subtotal:       |Non-Native-ferns|                |
+-9996 Subtotal:       |Arboreal        |                |
+-9995 Subtotal:       |Herbs           |                |
+-9994 Subtotal        |Ferns           |                |
+-9993 Subtotal:       |RRA             |
+-9992 Subtotal:       |Ferns           |                |
+-9991 Subtotal:       |Ornamental Trees|                |
+-9517 Pollen Accumulat|Rate            |                |
+-9516 Multiplier for: |Grains per cc   |(Wet Sample)    |
+-9515 Multiplier for: |Grains per gram |(Wet Weight)    |
+-9514 Multiplier for: |Grains per gram |(Dry Weight)    |
+-9513 Sedimentation:  |Dry grams per   |cm***#2 per Year|
+-9512 Wet Density:    |grams per cc    |                |
+-9511 Mineral Ash:    |% of Dry Weight |                |
+-9510 Carbonate:      |% of Dry Weight |                |
+-9509 Inorganics:     |% of Dry Weight |                |
+-9508 Organics        |                |                |
+-9507 Water:          |% of Wet Weight |                |
+-9506 Mineral Ash in  |Counted Sample  |(grams)         |
+-9505 Carbonates in   |Counted Sample  |(grams)         |
+-9504 Inorganics in   |Counted Sample  |(grams)         |
+-9503 Organics in     |Counted Sample  |(grams)         |
+-9502 Water in        |Counted Sample  |(grams)         |
+-9501 Dry Weight of   |Counted Sample  |(grams)         |
+-9500 Wet Weight of   |Counted Sample  |(grams)         |
+  -65 Control         |(Count)         |                |
+  -64 Control         |(pills/sample)  |                |
+  -63 Control         |(grains/pill)   |                |
+  -62 Years in Sample |                |                |
+  -61 Average Years/cm|(Vertical)      |                |
+  -60 Sample Thickness|(Vertical cm)   |                |
+  -59 Area of Sample  |(Square cm)     |                |
+  -58 Volume (cc) of  |Control Sample  |                |
+  -57 Volume (cc) of  |Counted Sample  |                |
+  -56 Weight (g) of   |Control & Vessel|sans Carbonates |
+  -55 Weight (g) of   |Control & Vessel|sans Organics   |
+  -54 Dry Weight of   |Control & Vessel|(grams)         |
+  -53 Wet Weight of   |Control & Vessel|(grams)         |
+  -52 Empty Weight of |Control Vessel  |(grams)         |
+  -51 Wet Weight of   |Counted Sample  |& Vessel (grams)|
+  -50 Empty Weight of |Counted Sample's|Vessel (grams)  |
+    1 *Pinus#         |                |                |
+    2 Organics        |                |                |
+    3 *Abies#         |                |                |
+    4 *Picea#         |                |                |
+    5 *TCT#           |                |                |
+    6 *Sequoia#       |                |                |
+    7 *Pseudostuga#   |                |                |
+    8 *Tsuga#         |                |                |
+    9 Inorganics      |                |                |
+   10 *Ephedra#       |                |                |
+   11 *Populus#       |                |                |
+   12 *Acer#          |                |                |
+   13 *Quercus#       |                |                |
+   14 *Acacia#        |                |                |
+   15 *Ericaceae#     |                |                |
+   16 *Lithocarpus#   |                |                |
+   17 *Fraxinus#      |                |                |
+   18 *Juglans#       |                |                |
+   19 *Ericaceae#     |                |                |
+   20 *Platanus#      |                |                |
+   21 RRA             |                |                |
+   22 ROSACEAE        |                |                |
+   23 *Ulmus#         |                |                |
+   24 ERICACEAE                        |                |
+   25 *Hedyosmum#     |                |
+   26 *Ceanothus#     |                |                |
+   27 *Cressa#        |                |                |
+   28 EUPHORBACEAE    |                |                |
+   29 *Acalypha#      |                |                |
+   30 *Alchornea#     |                |                |
+   31 *Erodium#       |*cicutarium#    |                |
+   32 *Eucalyptus#    |                |                |
+   33 *Salix#         |                |                |
+   34 *Myrica#        |                |                |
+   35 *Corylus#       |                |                |
+   36 *Alnus#         |                |                |
+   37 *Artemisia#     |                |                |
+   38 Proposis/Olneya |                |                |
+   39 *Ambrosia#      |                |                |
+   40 *Liguliflorae#  |                |                |
+   41 COMPOSITAE      |                |                |
+   42 COMPOSITAE      |Low Spine       |                |
+   43 *Morus/Cannabis#|                |                |
+   44 CRUCIFERAE      |                |                |
+   45 *Frankenia#     |                |                |
+   46 CARYOPHYLLACEAE |                |                |
+   47 MALVACEAE       |                |                |
+   48 MYRTACEAE       |                |                |
+   49 LEGUMINOSAE     |                |                |
+   50 ONAGRACEAE      |                |                |
+   51 LAMIACEAE       |                |                |
+   52 *Salvia spp.#   |                |                |
+   53 *Eriogonum spp.#|                |                |
+   54 ELAEAGNACEAE    |                |                |
+   55 ANACARDIACEAE   |                |                |
+   56 *Rumex#         |*acetosella#    |                |
+   57 *Salsola#       |*kali#          |                |
+   58 RUBIACEAE       |                |
+   59 POLEMONIACEAE   |                |                |
+   60 RANUNCULACEAE   |                |                |
+   61 SAXIFRAGACEAE   |                |                |
+   62 UMBELLIFERAE    |                |                |
+   63 *Toxicodendron# |*diversiloba#   |                |
+   64 *Plantago#      |*lanceolata#    |                |
+   65 *Plantago       |*lanceolata#    |                |
+   66 *Small Cheno#   |                |                |
+   67 GRAMINEAE       |                |                |
+   68 *Zea#           |                |                |
+   69 CHENOPODIACEAE  |                |                |
+   70 *Sacrobatus     |                |                |
+   71 *Typha#         |*latifolia#     |                |
+   72 *Typha/#        |*Sparganium#    |                |
+   73 CYPERACEAE      |                |                |
+   74 *Myriophyllum#  |                |                |
+   75 *Ruppia#        |                |                |
+   76 Unknown         |4-colpate       |                |
+   77 *Nuphar#        |                |                |
+   78 *Gallium spp#   |                |                |
+   79 *Potamogeton#   |                |                |
+   80 *Triglochin#                     |                |
+   81 *Isoetes#       |                |                |
+   82 *Dryopteris#    |                |                |
+   83 *Dryopteris#    |                |                |
+   84 *Polypodium#    |                |                |
+   85 *Pteridium#     |                |                |
+   86 *Pteris#        |                |                |
+   87 *Pteridium#     |                |                |
+   88 Magnetic        |Susceptibility  |                |
+   89 *Selaginella#   |                |                |
+   90 Trilete Spore   |                |                |
+   91 Monolete Spore  |                |                |
+   92 Trilete Spore   |                |                |
+   93 EUPHORBIACEAE / |RUTACEAE /      |ANACARDIACEAE   |
+   94 Pediastrum      |                |                |
+   95 APFAC           |                |                |
+   96 Indeterminate   |                |                |
+   97 Unknown         |                |                |
+   98 *Limonium#      |                |                |
+  101 Total Pollen    |and Spores      |                |
+  102 Control         |                |                |
+  104 CHARCOAL        |FRAGMENTS       |                |
+  105 TOTAL POLLEN,   |CHARCOAL COUNT  |                |
+  106 CONVERSION FOR: |ABSOLUTE CHARC. |                |
+  107 ARBOREAL POLLEN,|CHARCOAL COUNT  |                |
+  109 Filaree          (*Erodium#)      Scanned Count   |2x Exaggeration
+  110 Extended Count   Total            Equivalent
+  120 *Scirpus#       |*californicus#
+  121 *Scirpus#       |*americanus  #
+  122 *Scirpus#       |*nevadensis   #
+  123 *Scirpus#       |*acutus      #
+  124 *Scirpus#       |*robustus    #
+  125 *Scirpus#       |*amer/acut/cal  #
+  126 *Scirpus#       |*amer/acut#
+  127 *Scirpus#       |Unidentified  
+  128 *Potamogeton#
+  129 *Phragmites/Typha# ?  |Leaf Sheaf ?
+  130 *Scirpus#       |Whole Achenes
+  131 *Scirpus#       |Achene Fragments 
+  132 Unknown 3
+  133 Unknown 1
+  134 Unknown 2
+  135 Unknown 4
+  136 Unknown 5
+  137 Unknown 6
+  138 *Cyperus#       |species
+  139 *Polygonum#     |species
+  140 Inorganics      |% Dry Weight
+  141 Organics        |% Dry Weight
+  142 Foramanifera
+  160 Iron
+  161 Aluminum
+  162 Lead
+  163 Clay

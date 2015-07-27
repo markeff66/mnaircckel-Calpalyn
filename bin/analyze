@@ -1,0 +1,212 @@
+#!/usr/bin/tcsh
+# analyze that pup
+clear 
+repeat 10  echo '  '                                              
+echo '               Welcome to CalPalyn'
+echo '               The UCB Palynology Laboratory Pollen Analysis Application'
+echo ' '
+echo '  Version 2.1                            '
+echo '  Running on ULTRIX 4.4 BSD '
+echo '  Utilizing PostScript graphics'
+echo ''
+echo ' '
+echo '  Answer the questions while referring to the manual'
+echo '  Hit <return> for default answers shown in {braces}'
+echo ''
+echo '' 
+set project = $1
+#set path2 = $PWD
+set CALPALYN_BIN=$HOME/calpalyn/bin
+set path2 = $CALPALYN_BIN
+echo 'Current path, from where this program is run is '$path2
+if ($project == '') then
+	echo '  Enter the name of your project'
+	set project = $<
+endif
+echo '  enter file name to change data file from '$project'.data'
+echo '  {hit <return> to leave as is}'
+set datafile = $<
+if ($datafile == '') then
+	set datafile = $project'.data'
+else 
+	while ($datafile:e != 'data')
+		echo '  your datafile must end in .data'
+		echo '  PLEASE enter a correct data file'
+		set datafile = $<
+	end
+endif
+while (! $?ok)
+	if ( -e $datafile) then
+		echo '  The file '$datafile' exists already,'
+		echo '  so you`re working from (or adding to that data)'
+	else
+		echo '  The file '$datafile' does not exist,'
+		echo '  so you`re starting a new data file.'
+	endif
+	echo '  Does this sound right to you? (y/n)'
+	set ans = $<
+  	if ($ans == '') set ans = 'y'
+	if (($ans == 'y') || ($ans == 'n')) then
+		set ok
+	endif
+end	
+unset ok
+
+if ($ans == 'n') then
+	echo '  OK, check your files and try again later'
+	exit
+endif
+
+date +"%%%%CreationDate: %a %b %d %X %Y" > temp.date
+# DD/EE - Modified path for move to Socrates
+# cat /e/pollen/bin/eps.hd1 temp.date /e/pollen/bin/eps.hd2 /e/pollen/bin/template.min > plot.psc
+cat $path2/eps.hd1 temp.date $path2/eps.hd2 $path2/template.min > plot.psc
+
+/bin/rm -f temp.date
+/bin/rm -f fort.15
+/bin/rm -f fort.16
+/bin/rm -f fort.24
+/bin/rm -f fort.25
+/bin/rm -f fort.26
+/bin/rm -f fort.8
+/bin/rm -f calpalyn.tmp 
+/bin/rm -f $project'.common'
+/bin/rm -f $project'.matrix'
+/bin/rm -f $project'.names'
+
+set instrfile = $project'.instrs'
+
+while (! $?ok)
+	echo '  enter file name to change taxon names file from active.taxa'
+	echo '  {hit <return> to leave as is}'
+	echo '  ....or type "no" to forget taxon names, and just use numbers.'
+	set taxafile = $<
+	if ($taxafile == '') then
+		set taxafile = 'active.taxa'
+		set usetaxa = 1
+		set ok
+	else if (($taxafile == 'no') || ($taxafile == 'No')) then
+		set taxafile = 'active.taxa'
+		set usetaxa = 0 
+		set ok
+	else if (! -e $taxafile) then
+		repeat 2 echo ''
+		echo '  PLEASE enter an existing taxa file'
+		repeat 2 echo ''
+	else
+		set ok
+		set usetaxa = 1
+	endif
+end
+
+#set file unit numbers (I hope this verks)
+
+setenv fort1 $datafile
+setenv fort3 $taxafile
+setenv fort6 calpalyn.listing
+setenv fort20 calpalyn.tmp
+setenv fort21 /dev/tty
+setenv fort7 $project'.spssx'
+
+ln -s $datafile calpalyn.data
+ln -s $taxafile calpalyn.taxa
+
+#top of the central loop
+
+while (! $?done) 
+
+	clear
+	repeat 10 echo ''
+	echo '                     CALPALYN CENTRAL '
+	repeat 3 echo ''
+	echo '		A.  Enter Data.'
+	echo ' 		B.  Analyze Data.'
+	echo '		    {hit <return> to choose B}'
+	echo '		    {type <q> to quit}'
+	set ans = $<
+
+# Top of entry/edit/rewrite loop	
+
+	if  (($ans == 'a') || ($ans == 'A')) then
+		clear
+# DD/EE - Modified path to fit Socrates
+# executable
+#		/e/pollen/bin/enter_data $datafile
+		$path2/enter_data $datafile
+
+#top of analysis loop
+
+	else if (($ans == 'B') || ($ans == 'b') || ($ans == '')) then
+		unset ok
+		while (! $?ok)
+			echo '  enter file name to change instruction file from '$instrfile
+			echo '  {hit <return> to leave as is}'
+			echo '  ....or type "quit" to exit'
+			set instrfile2 = $<
+			if ($instrfile2 == '') then
+				set ok
+			else if (($instrfile2 == 'quit') || ($instrfile2 == 'Quit')) then
+				exit
+			else if (! -e $instrfile2) then
+				repeat 2 echo ''
+				echo '  PLEASE enter an existing instruction file'
+				repeat 2 echo ''
+			else
+				set instrfile = $instrfile2
+				set ok
+			endif
+		end
+		setenv fort2 $instrfile
+		ln -s $instrfile calpalyn.instrs
+		
+		while (! $?done_analysis) 
+			clear
+			repeat 10 echo ''
+			echo ' 		MENU for ANALYZING data:'
+			echo ' 			A.  Run analysis routines.'
+			echo ' 			B.  Edit instruction file.'
+			echo '			    {hit <return> to choose A}'
+			echo '			    {Type <q> to quit}'
+
+			set b_ans = $<
+
+			switch ($b_ans)
+			case 'a':
+			case '' :
+# DD/EE - Modified path to fit Socrates
+#				/e/pollen/bin/diagram_that_pup
+				$path2/diagram_that_pup
+				echo 'Filename for PostScript output?'
+				set outfile = $<
+				mv -i plot.psc $outfile
+				set done_analysis
+				set done
+				breaksw
+			case 'B':
+			case 'b':
+				vi $instrfile
+				breaksw
+
+			case 'q' :
+			case 'Q' :
+				 exit
+			default:
+			endsw
+		end
+
+	else if (($ans == 'q') || ($ans == 'Q')) then
+		echo 'leaving calpalyn'
+		set done
+	endif
+end
+			  
+/bin/rm -f fort.15
+/bin/rm -f fort.16
+/bin/rm -f fort.24
+/bin/rm -f fort.25
+/bin/rm -f fort.26
+/bin/rm -f fort.8
+/bin/rm -f calpalyn.tmp 
+/bin/rm -f calpalyn.data 
+/bin/rm -f calpalyn.taxa 
+/bin/rm -f calpalyn.instrs 

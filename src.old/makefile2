@@ -1,0 +1,5 @@
+
+OBJS = enter_data.o 
+
+enter_data: $(OBJS)
+	cc  $(OBJS) -o enter_data

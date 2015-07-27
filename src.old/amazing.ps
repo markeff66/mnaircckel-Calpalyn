@@ -1,0 +1,6576 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: CalPalyn Version 2.1
+%%CreationDate: Wed Mar 11 12:47:40 PM 2009
+%%BoundingBox: 0 0 612 792                                             
+%%LanguageLevel: 1
+%%EndComments
+% make sure the file begins with "%!" before you try and print it!
+/acutelines
+{
+/spacing exch def
+/angle exch def
+/x exch def
+/y exch def
+
+90 angle sub -1 mul rotate
+angle cos y mul -1 mul 0 translate
+0 spacing 
+angle cos y mul 90 angle sub cos x mul add
+{
+	0 moveto
+	0 angle sin y mul angle cos x mul add rlineto
+	stroke
+} for
+} def
+
+/obtuselines
+{
+/spacing exch def
+/angle exch def
+/x exch def
+/y exch def
+
+angle 90 sub rotate
+0 180 angle sub cos x mul -1 mul translate
+0 spacing 
+angle 90 sub sin y mul angle 90 sub cos x mul add
+{
+	0 moveto
+	0 angle 90 sub cos y mul 180 angle sub cos x mul add rlineto
+	stroke
+} for
+} def
+
+/setuserscreendict 22 dict def
+setuserscreendict begin
+	/tempctm matrix def
+	/temprot matrix def
+	/tempscale matrix def
+
+	/concatprocs
+	{
+		/proc2 exch cvlit def
+		/proc1 exch cvlit def
+		/newproc proc1 length proc2 length add array def
+
+		newproc 0 proc1 putinterval
+		newproc proc1 length proc2 putinterval
+		newproc cvx
+	} def
+
+	/resmatrix matrix def
+	/findresolution
+	{
+		72 0 resmatrix defaultmatrix dtransform
+		/yres exch def /xres exch def
+		xres dup mul yres dup mul add sqrt
+	} def
+end
+
+/setuserscreen
+{
+	setuserscreendict begin
+	/spotfunction exch def
+	/screenangle exch def
+	/cellsize exch def
+
+	/m tempctm currentmatrix def
+	/rm screenangle temprot rotate def
+	/sm cellsize dup tempscale scale def
+
+
+	sm rm m m concatmatrix m concatmatrix pop
+
+	1 0 m dtransform /y1 exch def /x1 exch def
+
+	/veclength x1 dup mul y1 dup mul add sqrt def
+	/frequency findresolution veclength div def
+
+	/newscreenangle y1 x1 atan def
+
+	m 2 get m 1 get mul m 0 get m 3 get mul sub 0 gt
+		
+		{{ neg } /spotfunction load concatprocs
+			/spotfunction exch def
+		}
+
+
+	frequency newscreenangle /spotfunction load
+		setscreen
+	end
+} def
+
+/setpatterndict 18 dict def
+setpatterndict begin
+	/bitison
+	{
+		/ybit exch def /xbit exch def
+		/bytevalue bstring ybit bwidth mul xbit 8 idiv
+			add get def
+		/mask 1 7 xbit 8 mod sub bitshift def
+		bytevalue mask and 0 ne
+	} def
+end
+
+/bitpatternspotfunction
+{
+	setpatterndict begin
+	/y exch def /x exch def
+	/xindex x 1 add 2 div bpside mul cvi def
+	/yindex y 1 add 2 div bpside mul cvi def
+
+	xindex yindex bitison
+	{ /onbits onbits 1 add def 1}
+	{ /offbits offbits 1 add def 0 }
+	ifelse
+
+	end
+} def
+
+/setpattern
+{
+	setpatterndict begin
+	/cellsz exch def
+	/angle exch def
+	/bwidth exch def
+	/bpside exch def
+	/bstring exch def
+
+	/onbits 0 def /offbits 0 def
+	cellsz angle /bitpatternspotfunction load
+		setuserscreen
+	{} settransfer
+	offbits offbits onbits add div setgray 
+	end
+} def
+
+/inch {72 mul} def
+
+/pat1 <d1e3c5885c3e1d88> def
+/pat2 <3e418080e3140808> def
+/pat3 <388387377830060e> def
+/rox  <000000001c003e007e003c00183c007e00fe00ee003c07003f803f8006000000> def
+/brix <1010101010101010101010101010ffff0101010101010101010101010101ffff> def
+/csand <00001c003e007f007f007f003e001c000038007c00fe00fe00fe007c00380000> def
+/msand <000018003c007e187e3c3c7e187e003c001806000f001f801f800f0006000000> def
+/silt <0000300078007830307800780030000000000c001e001e0c0c1e001e000c0000> def
+/fsilt <0002100038001002000700020020007000200100038001001000380010020007> def
+/flour <00000000100010007c481030103000480000000000080008903e600860089000> def
+/mystery <1e001fc017fcfff8fff0fff07ff07ff03ff31ff60ffc07f80030006000c00080> def
+/set_title {
+	/Helvetica findfont
+	18 scalefont setfont
+} def
+/set_CSZ {
+	/Times-Roman findfont
+	10 scalefont setfont
+} def
+/set_chrkey {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_chron {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_strat {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_depkey {
+	/Helvetica findfont
+	8 scalefont setfont
+} def
+/set_depth {
+	/Helvetica findfont
+	8 scalefont setfont
+} def
+/set_taxon {
+	/Times-Roman findfont
+	12 scalefont setfont
+} def
+/set_botnum {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_botlab {
+	/Times-Roman findfont
+	8 scalefont setfont
+} def
+/set_taxgrp {
+	/Times-Roman findfont
+	10 scalefont setfont
+} def
+/set_zonnum {
+	/Helvetica findfont
+	8 scalefont setfont
+} def
+/set_taxon-italic {
+	/Times-Italic findfont
+	12 scalefont setfont
+} def
+/set_taxgrp-italic {
+	/Times-Italic findfont
+	10 scalefont setfont
+} def
+/leading 9 def
+/leading_45 14 def
+/nstr 7 string def
+/lstr 30 string def
+0 setlinewidth
+90 rotate
+72 -540 translate
+0 396 moveto
+set_title (Mountain Lake, San Francisco                                                    @€) show
+set_CSZ
+23.43 0 translate
+0 0 moveto
+0 288.00 rlineto
+9 0 rlineto
+0 -288.00 rlineto
+-9 0 rlineto
+stroke
+5 296 moveto
+45 rotate
+(CHRONOLOGY) show
+-45 rotate
+% assign font for chronology key or legend
+set_chrkey
+leading_45 296 moveto
+45 rotate
+(Years B.P.                              ) show
+-45 rotate
+% assign font for chronology labels or numbers
+set_chron
+0.00 288.00 moveto
+-3 0 rmoveto
+3 0 rlineto
+(0)
+lstr cvs dup stringwidth pop
+8 add -1 mul 288.00 4.0 sub moveto
+show
+0.00 288.00 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 288.00 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 288.00 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 288.00 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 288.00 moveto
+-3 0 rmoveto
+3 0 rlineto
+(10)
+lstr cvs dup stringwidth pop
+8 add -1 mul 288.00 4.0 sub moveto
+show
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+(20)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.99 4.0 sub moveto
+show
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+(30)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.99 4.0 sub moveto
+show
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.99 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+(40)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.98 4.0 sub moveto
+show
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+(50)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.98 4.0 sub moveto
+show
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.98 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+(60)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.97 4.0 sub moveto
+show
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+(70)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.97 4.0 sub moveto
+show
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.97 moveto
+-3 0 rmoveto
+3 0 rlineto
+(80)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.97 4.0 sub moveto
+show
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+(90)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.96 4.0 sub moveto
+show
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+(100)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.96 4.0 sub moveto
+show
+0.00 287.96 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+(110)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.95 4.0 sub moveto
+show
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+(120)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.95 4.0 sub moveto
+show
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.95 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+(130)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.94 4.0 sub moveto
+show
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+(140)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.94 4.0 sub moveto
+show
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.94 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+(150)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.93 4.0 sub moveto
+show
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+(160)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.93 4.0 sub moveto
+show
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.93 moveto
+-3 0 rmoveto
+3 0 rlineto
+(170)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.93 4.0 sub moveto
+show
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+(180)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.92 4.0 sub moveto
+show
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+(190)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.92 4.0 sub moveto
+show
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.92 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+(200)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.91 4.0 sub moveto
+show
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+(210)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.91 4.0 sub moveto
+show
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.91 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+(220)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.90 4.0 sub moveto
+show
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+(230)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.90 4.0 sub moveto
+show
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.90 moveto
+-3 0 rmoveto
+3 0 rlineto
+(240)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.90 4.0 sub moveto
+show
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+(250)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.89 4.0 sub moveto
+show
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+(260)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.89 4.0 sub moveto
+show
+0.00 287.89 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+(270)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.88 4.0 sub moveto
+show
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+(280)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.88 4.0 sub moveto
+show
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.88 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+(290)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.87 4.0 sub moveto
+show
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+(300)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.87 4.0 sub moveto
+show
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.87 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+(310)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.86 4.0 sub moveto
+show
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+(320)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.86 4.0 sub moveto
+show
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+(330)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.86 4.0 sub moveto
+show
+0.00 287.86 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+(340)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.85 4.0 sub moveto
+show
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+(350)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.85 4.0 sub moveto
+show
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.85 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+(360)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.84 4.0 sub moveto
+show
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+(370)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.84 4.0 sub moveto
+show
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.84 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+(380)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.83 4.0 sub moveto
+show
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+(390)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.83 4.0 sub moveto
+show
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.83 moveto
+-3 0 rmoveto
+3 0 rlineto
+(400)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.83 4.0 sub moveto
+show
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+(410)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.82 4.0 sub moveto
+show
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+(420)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.82 4.0 sub moveto
+show
+0.00 287.82 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+(430)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.81 4.0 sub moveto
+show
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+(440)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.81 4.0 sub moveto
+show
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.81 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+(450)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.80 4.0 sub moveto
+show
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+(460)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.80 4.0 sub moveto
+show
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.80 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+(470)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.79 4.0 sub moveto
+show
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+(480)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.79 4.0 sub moveto
+show
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+(490)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.79 4.0 sub moveto
+show
+0.00 287.79 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+(500)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.78 4.0 sub moveto
+show
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+(510)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.78 4.0 sub moveto
+show
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.78 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+(520)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.77 4.0 sub moveto
+show
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+(530)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.77 4.0 sub moveto
+show
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.77 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+(540)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.76 4.0 sub moveto
+show
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+(550)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.76 4.0 sub moveto
+show
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.76 moveto
+-3 0 rmoveto
+3 0 rlineto
+(560)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.76 4.0 sub moveto
+show
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+(570)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.75 4.0 sub moveto
+show
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+(580)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.75 4.0 sub moveto
+show
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.75 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+(590)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.74 4.0 sub moveto
+show
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+(600)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.74 4.0 sub moveto
+show
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.74 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+(610)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.73 4.0 sub moveto
+show
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+(620)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.73 4.0 sub moveto
+show
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.73 moveto
+-3 0 rmoveto
+3 0 rlineto
+(630)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.73 4.0 sub moveto
+show
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+(640)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.72 4.0 sub moveto
+show
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+(650)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.72 4.0 sub moveto
+show
+0.00 287.72 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+(660)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.71 4.0 sub moveto
+show
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+(670)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.71 4.0 sub moveto
+show
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.71 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+(680)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.70 4.0 sub moveto
+show
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+(690)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.70 4.0 sub moveto
+show
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.70 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+(700)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.69 4.0 sub moveto
+show
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+(710)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.69 4.0 sub moveto
+show
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.69 moveto
+-3 0 rmoveto
+3 0 rlineto
+(720)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.69 4.0 sub moveto
+show
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+(730)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.68 4.0 sub moveto
+show
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+(740)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.68 4.0 sub moveto
+show
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.68 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+(750)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.67 4.0 sub moveto
+show
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+(760)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.67 4.0 sub moveto
+show
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.67 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+(770)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.66 4.0 sub moveto
+show
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+(780)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.66 4.0 sub moveto
+show
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.66 moveto
+-3 0 rmoveto
+3 0 rlineto
+(790)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.66 4.0 sub moveto
+show
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+(800)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.65 4.0 sub moveto
+show
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+(810)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.65 4.0 sub moveto
+show
+0.00 287.65 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+(820)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.64 4.0 sub moveto
+show
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+(830)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.64 4.0 sub moveto
+show
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.64 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+(840)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.63 4.0 sub moveto
+show
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+(850)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.63 4.0 sub moveto
+show
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.63 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+(860)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.62 4.0 sub moveto
+show
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+(870)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.62 4.0 sub moveto
+show
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+(880)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.62 4.0 sub moveto
+show
+0.00 287.62 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+(890)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.61 4.0 sub moveto
+show
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+(900)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.61 4.0 sub moveto
+show
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.61 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+(910)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.60 4.0 sub moveto
+show
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+(920)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.60 4.0 sub moveto
+show
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.60 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+(930)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.59 4.0 sub moveto
+show
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+(940)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.59 4.0 sub moveto
+show
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.59 moveto
+-3 0 rmoveto
+3 0 rlineto
+(950)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.59 4.0 sub moveto
+show
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+(960)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.58 4.0 sub moveto
+show
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+(970)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.58 4.0 sub moveto
+show
+0.00 287.58 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+(980)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.57 4.0 sub moveto
+show
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+(990)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.57 4.0 sub moveto
+show
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.57 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1000)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.56 4.0 sub moveto
+show
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1010)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.56 4.0 sub moveto
+show
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.56 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1020)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.55 4.0 sub moveto
+show
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1030)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.55 4.0 sub moveto
+show
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1040)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.55 4.0 sub moveto
+show
+0.00 287.55 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1050)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.54 4.0 sub moveto
+show
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1060)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.54 4.0 sub moveto
+show
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.54 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1070)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.53 4.0 sub moveto
+show
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1080)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.53 4.0 sub moveto
+show
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.53 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1090)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.52 4.0 sub moveto
+show
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1100)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.52 4.0 sub moveto
+show
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.52 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1110)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.52 4.0 sub moveto
+show
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1120)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.51 4.0 sub moveto
+show
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1130)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.51 4.0 sub moveto
+show
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.51 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1140)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.50 4.0 sub moveto
+show
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1150)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.50 4.0 sub moveto
+show
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.50 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1160)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.49 4.0 sub moveto
+show
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1170)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.49 4.0 sub moveto
+show
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.49 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1180)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.49 4.0 sub moveto
+show
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1190)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.48 4.0 sub moveto
+show
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1200)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.48 4.0 sub moveto
+show
+0.00 287.48 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1210)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.47 4.0 sub moveto
+show
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1220)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.47 4.0 sub moveto
+show
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.47 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1230)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.46 4.0 sub moveto
+show
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1240)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.46 4.0 sub moveto
+show
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.46 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1250)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.45 4.0 sub moveto
+show
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1260)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.45 4.0 sub moveto
+show
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.45 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1270)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.45 4.0 sub moveto
+show
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1280)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.44 4.0 sub moveto
+show
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1290)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.44 4.0 sub moveto
+show
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.44 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1300)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.43 4.0 sub moveto
+show
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1310)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.43 4.0 sub moveto
+show
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.43 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1320)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.42 4.0 sub moveto
+show
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1330)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.42 4.0 sub moveto
+show
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.42 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1340)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.42 4.0 sub moveto
+show
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1350)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.41 4.0 sub moveto
+show
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1360)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.41 4.0 sub moveto
+show
+0.00 287.41 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1370)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.40 4.0 sub moveto
+show
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1380)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.40 4.0 sub moveto
+show
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.40 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1390)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.39 4.0 sub moveto
+show
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1400)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.39 4.0 sub moveto
+show
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.39 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1410)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.38 4.0 sub moveto
+show
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1420)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.38 4.0 sub moveto
+show
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1430)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.38 4.0 sub moveto
+show
+0.00 287.38 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1440)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.37 4.0 sub moveto
+show
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1450)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.37 4.0 sub moveto
+show
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.37 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1460)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.36 4.0 sub moveto
+show
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1470)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.36 4.0 sub moveto
+show
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.36 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1480)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.35 4.0 sub moveto
+show
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1490)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.35 4.0 sub moveto
+show
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.35 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1500)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.35 4.0 sub moveto
+show
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1510)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.34 4.0 sub moveto
+show
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1520)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.34 4.0 sub moveto
+show
+0.00 287.34 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1530)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.33 4.0 sub moveto
+show
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1540)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.33 4.0 sub moveto
+show
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.33 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1550)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.32 4.0 sub moveto
+show
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1560)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.32 4.0 sub moveto
+show
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.32 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1570)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.31 4.0 sub moveto
+show
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1580)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.31 4.0 sub moveto
+show
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1590)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.31 4.0 sub moveto
+show
+0.00 287.31 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1600)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.30 4.0 sub moveto
+show
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1610)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.30 4.0 sub moveto
+show
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.30 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1620)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.29 4.0 sub moveto
+show
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1630)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.29 4.0 sub moveto
+show
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.29 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1640)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.28 4.0 sub moveto
+show
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1650)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.28 4.0 sub moveto
+show
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.28 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1660)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.28 4.0 sub moveto
+show
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1670)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.27 4.0 sub moveto
+show
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1680)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.27 4.0 sub moveto
+show
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.27 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1690)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.26 4.0 sub moveto
+show
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1700)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.26 4.0 sub moveto
+show
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.26 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1710)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.25 4.0 sub moveto
+show
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1720)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.25 4.0 sub moveto
+show
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.25 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1730)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.25 4.0 sub moveto
+show
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1740)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.24 4.0 sub moveto
+show
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1750)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.24 4.0 sub moveto
+show
+0.00 287.24 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1760)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.23 4.0 sub moveto
+show
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1770)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.23 4.0 sub moveto
+show
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.23 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1780)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.22 4.0 sub moveto
+show
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1790)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.22 4.0 sub moveto
+show
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.22 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1800)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.21 4.0 sub moveto
+show
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1810)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.21 4.0 sub moveto
+show
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.21 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1820)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.21 4.0 sub moveto
+show
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1830)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.20 4.0 sub moveto
+show
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1840)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.20 4.0 sub moveto
+show
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.20 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1850)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.19 4.0 sub moveto
+show
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1860)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.19 4.0 sub moveto
+show
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.19 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1870)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.18 4.0 sub moveto
+show
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1880)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.18 4.0 sub moveto
+show
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.18 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1890)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.18 4.0 sub moveto
+show
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1900)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.17 4.0 sub moveto
+show
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1910)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.17 4.0 sub moveto
+show
+0.00 287.17 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1920)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.16 4.0 sub moveto
+show
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1930)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.16 4.0 sub moveto
+show
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.16 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1940)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.15 4.0 sub moveto
+show
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1950)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.15 4.0 sub moveto
+show
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.15 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1960)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.14 4.0 sub moveto
+show
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1970)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.14 4.0 sub moveto
+show
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1980)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.14 4.0 sub moveto
+show
+0.00 287.14 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.13 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.13 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.13 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.13 moveto
+-3 0 rmoveto
+3 0 rlineto
+(1990)
+lstr cvs dup stringwidth pop
+8 add -1 mul 287.13 4.0 sub moveto
+show
+0.00 287.13 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.13 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.13 moveto
+-3 0 rmoveto
+3 0 rlineto
+0.00 287.13 moveto
+-3 0 rmoveto
+3 0 rlineto
+0 287.56 moveto
+9 287.56 lineto
+9 286.69 lineto
+0 286.69 lineto
+closepath 
+0 setgray
+fill
+0 266.62 moveto
+9 266.62 lineto
+9 265.75 lineto
+0 265.75 lineto
+closepath 
+0 setgray
+fill
+0 240.44 moveto
+9 240.44 lineto
+9 239.56 lineto
+0 239.56 lineto
+closepath 
+0 setgray
+fill
+0 140.07 moveto
+9 140.07 lineto
+9 139.20 lineto
+0 139.20 lineto
+closepath 
+0 setgray
+fill
+0 135.71 moveto
+9 135.71 lineto
+9 134.84 lineto
+0 134.84 lineto
+closepath 
+0 setgray
+fill
+0 126.98 moveto
+9 126.98 lineto
+9 126.11 lineto
+0 126.11 lineto
+closepath 
+0 setgray
+fill
+0 118.25 moveto
+9 118.25 lineto
+9 117.38 lineto
+0 117.38 lineto
+closepath 
+0 setgray
+fill
+0 24.87 moveto
+9 24.87 lineto
+9 24.00 lineto
+0 24.00 lineto
+closepath 
+0 setgray
+fill
+0 -108.65 moveto
+9 -108.65 lineto
+9 -109.53 lineto
+0 -109.53 lineto
+closepath 
+0 setgray
+fill
+0 -230.84 moveto
+9 -230.84 lineto
+9 -231.71 lineto
+0 -231.71 lineto
+closepath 
+0 setgray
+fill
+82.00 0 translate
+% assign font for vertical label (e.g. Depth)
+set_depkey
+(Depth in cm. )
+dup stringwidth pop 2 div -1 mul 144.0 add -24 exch moveto
+90 rotate
+show
+-90 rotate
+% assign font for numbers on vertical axis
+set_depth
+0 0 moveto
+0 288.00 lineto
+0 288.00 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 288.00 moveto
+0 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 266.18 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 266.18 moveto
+25 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 244.36 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 244.36 moveto
+50 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 222.55 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 222.55 moveto
+75 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 200.73 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 200.73 moveto
+100 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 178.91 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 178.91 moveto
+125 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 157.09 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 157.09 moveto
+150 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 135.27 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 135.27 moveto
+175 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 113.45 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 113.45 moveto
+200 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 91.64 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 91.64 moveto
+225 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 69.82 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 69.82 moveto
+250 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 48.00 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 48.00 moveto
+275 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 26.18 moveto
+1 1 10 {
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+} for
+0 26.18 moveto
+300 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+0 4.36 moveto
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 -2.18 rmoveto
+-3 0 rmoveto 
+3 0 rlineto
+0 4.36 moveto
+325 nstr cvs dup stringwidth pop
+ 5 add -1 mul -3 rmoveto
+show
+stroke
+gsave
+0 0 moveto
+0 288.00 lineto
+0 9 translate
+0 277.00 moveto
+0.00 277.00 lineto
+0.00 281.00 lineto
+0 281.00 lineto
+0 277.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 268.27 moveto
+0.00 268.27 lineto
+0.00 272.27 lineto
+0 272.27 lineto
+0 268.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 259.55 moveto
+5.99 259.55 lineto
+5.99 263.55 lineto
+0 263.55 lineto
+0 259.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 250.82 moveto
+0.00 250.82 lineto
+0.00 254.82 lineto
+0 254.82 lineto
+0 250.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 242.09 moveto
+0.00 242.09 lineto
+0.00 246.09 lineto
+0 246.09 lineto
+0 242.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 233.36 moveto
+0.00 233.36 lineto
+0.00 237.36 lineto
+0 237.36 lineto
+0 233.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 224.64 moveto
+0.00 224.64 lineto
+0.00 228.64 lineto
+0 228.64 lineto
+0 224.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 215.91 moveto
+15.83 215.91 lineto
+15.83 219.91 lineto
+0 219.91 lineto
+0 215.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 207.18 moveto
+6.53 207.18 lineto
+6.53 211.18 lineto
+0 211.18 lineto
+0 207.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 198.45 moveto
+8.05 198.45 lineto
+8.05 202.45 lineto
+0 202.45 lineto
+0 198.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 189.73 moveto
+0.00 189.73 lineto
+0.00 193.73 lineto
+0 193.73 lineto
+0 189.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 181.00 moveto
+0.00 181.00 lineto
+0.00 185.00 lineto
+0 185.00 lineto
+0 181.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 172.27 moveto
+7.68 172.27 lineto
+7.68 176.27 lineto
+0 176.27 lineto
+0 172.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 163.55 moveto
+23.82 163.55 lineto
+23.82 167.55 lineto
+0 167.55 lineto
+0 163.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 154.82 moveto
+7.08 154.82 lineto
+7.08 158.82 lineto
+0 158.82 lineto
+0 154.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 146.09 moveto
+7.86 146.09 lineto
+7.86 150.09 lineto
+0 150.09 lineto
+0 146.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 137.36 moveto
+16.62 137.36 lineto
+16.62 141.36 lineto
+0 141.36 lineto
+0 137.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 128.64 moveto
+25.93 128.64 lineto
+25.93 132.64 lineto
+0 132.64 lineto
+0 128.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 124.27 moveto
+7.97 124.27 lineto
+7.97 128.27 lineto
+0 128.27 lineto
+0 124.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 119.91 moveto
+33.31 119.91 lineto
+33.31 123.91 lineto
+0 123.91 lineto
+0 119.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 115.55 moveto
+19.36 115.55 lineto
+19.36 119.55 lineto
+0 119.55 lineto
+0 115.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 111.18 moveto
+50.49 111.18 lineto
+50.49 115.18 lineto
+0 115.18 lineto
+0 111.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 106.82 moveto
+17.95 106.82 lineto
+17.95 110.82 lineto
+0 110.82 lineto
+0 106.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 102.45 moveto
+0.00 102.45 lineto
+0.00 106.45 lineto
+0 106.45 lineto
+0 102.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 93.73 moveto
+0.00 93.73 lineto
+0.00 97.73 lineto
+0 97.73 lineto
+0 93.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 85.00 moveto
+0.00 85.00 lineto
+0.00 89.00 lineto
+0 89.00 lineto
+0 85.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 50.09 moveto
+0.00 50.09 lineto
+0.00 54.09 lineto
+0 54.09 lineto
+0 50.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 41.36 moveto
+0.00 41.36 lineto
+0.00 45.36 lineto
+0 45.36 lineto
+0 41.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 32.64 moveto
+0.00 32.64 lineto
+0.00 36.64 lineto
+0 36.64 lineto
+0 32.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 23.91 moveto
+0.00 23.91 lineto
+0.00 27.91 lineto
+0 27.91 lineto
+0 23.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 15.18 moveto
+0.00 15.18 lineto
+0.00 19.18 lineto
+0 19.18 lineto
+0 15.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 6.45 moveto
+0.00 6.45 lineto
+0.00 10.45 lineto
+0 10.45 lineto
+0 6.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -2.27 moveto
+0.00 -2.27 lineto
+0.00 1.73 lineto
+0 1.73 lineto
+0 -2.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -11.00 moveto
+0.00 -11.00 lineto
+0.00 -7.00 lineto
+0 -7.00 lineto
+0 -11.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -9 translate
+0 0 moveto
+0 0 lineto
+50.49 0 lineto 
+stroke
+8 leading_45 14 sub add 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Erodium        ) show
+-45 rotate
+8 leading_45 add 296 moveto
+45 rotate
+set_taxon-italic
+(cicutarium     ) show
+-45 rotate
+8 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+2 nstr cvs dup stringwidth pop
+2 div
+46.86 exch sub -11 moveto
+show
+46.86 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+( ercent Total Non-Aquatic Poll) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+78.60 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+0 9 translate
+0 277.00 moveto
+0.00 277.00 lineto
+0.00 281.00 lineto
+0 281.00 lineto
+0 277.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 268.27 moveto
+9.37 268.27 lineto
+9.37 272.27 lineto
+0 272.27 lineto
+0 268.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 259.55 moveto
+9.37 259.55 lineto
+9.37 263.55 lineto
+0 263.55 lineto
+0 259.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 250.82 moveto
+14.06 250.82 lineto
+14.06 254.82 lineto
+0 254.82 lineto
+0 250.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 242.09 moveto
+4.69 242.09 lineto
+4.69 246.09 lineto
+0 246.09 lineto
+0 242.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 233.36 moveto
+4.69 233.36 lineto
+4.69 237.36 lineto
+0 237.36 lineto
+0 233.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 224.64 moveto
+32.80 224.64 lineto
+32.80 228.64 lineto
+0 228.64 lineto
+0 224.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 215.91 moveto
+14.06 215.91 lineto
+14.06 219.91 lineto
+0 219.91 lineto
+0 215.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 207.18 moveto
+32.80 207.18 lineto
+32.80 211.18 lineto
+0 211.18 lineto
+0 207.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 198.45 moveto
+23.43 198.45 lineto
+23.43 202.45 lineto
+0 202.45 lineto
+0 198.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 189.73 moveto
+9.37 189.73 lineto
+9.37 193.73 lineto
+0 193.73 lineto
+0 189.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 181.00 moveto
+79.65 181.00 lineto
+79.65 185.00 lineto
+0 185.00 lineto
+0 181.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 172.27 moveto
+98.40 172.27 lineto
+98.40 176.27 lineto
+0 176.27 lineto
+0 172.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 163.55 moveto
+32.80 163.55 lineto
+32.80 167.55 lineto
+0 167.55 lineto
+0 163.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 154.82 moveto
+46.86 154.82 lineto
+46.86 158.82 lineto
+0 158.82 lineto
+0 154.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 146.09 moveto
+93.71 146.09 lineto
+93.71 150.09 lineto
+0 150.09 lineto
+0 146.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 137.36 moveto
+60.91 137.36 lineto
+60.91 141.36 lineto
+0 141.36 lineto
+0 137.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 128.64 moveto
+51.54 128.64 lineto
+51.54 132.64 lineto
+0 132.64 lineto
+0 128.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 124.27 moveto
+9.37 124.27 lineto
+9.37 128.27 lineto
+0 128.27 lineto
+0 124.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 119.91 moveto
+42.17 119.91 lineto
+42.17 123.91 lineto
+0 123.91 lineto
+0 119.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 115.55 moveto
+4.69 115.55 lineto
+4.69 119.55 lineto
+0 119.55 lineto
+0 115.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 111.18 moveto
+0.00 111.18 lineto
+0.00 115.18 lineto
+0 115.18 lineto
+0 111.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 106.82 moveto
+0.00 106.82 lineto
+0.00 110.82 lineto
+0 110.82 lineto
+0 106.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 102.45 moveto
+0.00 102.45 lineto
+0.00 106.45 lineto
+0 106.45 lineto
+0 102.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 93.73 moveto
+0.00 93.73 lineto
+0.00 97.73 lineto
+0 97.73 lineto
+0 93.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 85.00 moveto
+0.00 85.00 lineto
+0.00 89.00 lineto
+0 89.00 lineto
+0 85.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 50.09 moveto
+0.00 50.09 lineto
+0.00 54.09 lineto
+0 54.09 lineto
+0 50.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 41.36 moveto
+0.00 41.36 lineto
+0.00 45.36 lineto
+0 45.36 lineto
+0 41.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 32.64 moveto
+0.00 32.64 lineto
+0.00 36.64 lineto
+0 36.64 lineto
+0 32.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 23.91 moveto
+0.00 23.91 lineto
+0.00 27.91 lineto
+0 27.91 lineto
+0 23.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 15.18 moveto
+0.00 15.18 lineto
+0.00 19.18 lineto
+0 19.18 lineto
+0 15.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 6.45 moveto
+0.00 6.45 lineto
+0.00 10.45 lineto
+0 10.45 lineto
+0 6.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -2.27 moveto
+0.00 -2.27 lineto
+0.00 1.73 lineto
+0 1.73 lineto
+0 -2.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -11.00 moveto
+0.00 -11.00 lineto
+0.00 -7.00 lineto
+0 -7.00 lineto
+0 -11.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -9 translate
+0 0 moveto
+0 0 lineto
+98.40 0 lineto 
+stroke
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Rumex          ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon-italic
+(acetosella     ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+10 nstr cvs dup stringwidth pop
+2 div
+46.86 exch sub -11 moveto
+show
+46.86 -3 moveto
+0 6 rlineto
+20 nstr cvs dup stringwidth pop
+2 div
+93.71 exch sub -11 moveto
+show
+93.71 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+126.51 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+0 9 translate
+0 277.00 moveto
+18.74 277.00 lineto
+18.74 281.00 lineto
+0 281.00 lineto
+0 277.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 268.27 moveto
+37.48 268.27 lineto
+37.48 272.27 lineto
+0 272.27 lineto
+0 268.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 259.55 moveto
+0.00 259.55 lineto
+0.00 263.55 lineto
+0 263.55 lineto
+0 259.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 250.82 moveto
+18.74 250.82 lineto
+18.74 254.82 lineto
+0 254.82 lineto
+0 250.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 242.09 moveto
+74.97 242.09 lineto
+74.97 246.09 lineto
+0 246.09 lineto
+0 242.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 233.36 moveto
+46.86 233.36 lineto
+46.86 237.36 lineto
+0 237.36 lineto
+0 233.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 224.64 moveto
+74.97 224.64 lineto
+74.97 228.64 lineto
+0 228.64 lineto
+0 224.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 215.91 moveto
+18.74 215.91 lineto
+18.74 219.91 lineto
+0 219.91 lineto
+0 215.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 207.18 moveto
+46.86 207.18 lineto
+46.86 211.18 lineto
+0 211.18 lineto
+0 207.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 198.45 moveto
+65.60 198.45 lineto
+65.60 202.45 lineto
+0 202.45 lineto
+0 198.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 189.73 moveto
+18.74 189.73 lineto
+18.74 193.73 lineto
+0 193.73 lineto
+0 189.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 181.00 moveto
+56.23 181.00 lineto
+56.23 185.00 lineto
+0 185.00 lineto
+0 181.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 172.27 moveto
+46.86 172.27 lineto
+46.86 176.27 lineto
+0 176.27 lineto
+0 172.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 163.55 moveto
+18.74 163.55 lineto
+18.74 167.55 lineto
+0 167.55 lineto
+0 163.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 154.82 moveto
+28.11 154.82 lineto
+28.11 158.82 lineto
+0 158.82 lineto
+0 154.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 146.09 moveto
+74.97 146.09 lineto
+74.97 150.09 lineto
+0 150.09 lineto
+0 146.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 137.36 moveto
+9.37 137.36 lineto
+9.37 141.36 lineto
+0 141.36 lineto
+0 137.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 128.64 moveto
+9.37 128.64 lineto
+9.37 132.64 lineto
+0 132.64 lineto
+0 128.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 124.27 moveto
+18.74 124.27 lineto
+18.74 128.27 lineto
+0 128.27 lineto
+0 124.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 119.91 moveto
+0.00 119.91 lineto
+0.00 123.91 lineto
+0 123.91 lineto
+0 119.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 115.55 moveto
+0.00 115.55 lineto
+0.00 119.55 lineto
+0 119.55 lineto
+0 115.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 111.18 moveto
+0.00 111.18 lineto
+0.00 115.18 lineto
+0 115.18 lineto
+0 111.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 106.82 moveto
+0.00 106.82 lineto
+0.00 110.82 lineto
+0 110.82 lineto
+0 106.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 102.45 moveto
+0.00 102.45 lineto
+0.00 106.45 lineto
+0 106.45 lineto
+0 102.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 93.73 moveto
+0.00 93.73 lineto
+0.00 97.73 lineto
+0 97.73 lineto
+0 93.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 85.00 moveto
+0.00 85.00 lineto
+0.00 89.00 lineto
+0 89.00 lineto
+0 85.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 50.09 moveto
+0.00 50.09 lineto
+0.00 54.09 lineto
+0 54.09 lineto
+0 50.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 41.36 moveto
+0.00 41.36 lineto
+0.00 45.36 lineto
+0 45.36 lineto
+0 41.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 32.64 moveto
+0.00 32.64 lineto
+0.00 36.64 lineto
+0 36.64 lineto
+0 32.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 23.91 moveto
+0.00 23.91 lineto
+0.00 27.91 lineto
+0 27.91 lineto
+0 23.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 15.18 moveto
+0.00 15.18 lineto
+0.00 19.18 lineto
+0 19.18 lineto
+0 15.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 6.45 moveto
+0.00 6.45 lineto
+0.00 10.45 lineto
+0 10.45 lineto
+0 6.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -2.27 moveto
+0.00 -2.27 lineto
+0.00 1.73 lineto
+0 1.73 lineto
+0 -2.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -11.00 moveto
+0.00 -11.00 lineto
+0.00 -7.00 lineto
+0 -7.00 lineto
+0 -11.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -9 translate
+0 0 moveto
+0 0 lineto
+74.97 0 lineto 
+stroke
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Plantago       ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon-italic
+(lanceolata     ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+5 nstr cvs dup stringwidth pop
+2 div
+46.86 exch sub -11 moveto
+show
+46.86 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+103.08 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+0 9 translate
+0 277.00 moveto
+116.20 277.00 lineto
+116.20 281.00 lineto
+0 281.00 lineto
+0 277.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 268.27 moveto
+118.08 268.27 lineto
+118.08 272.27 lineto
+0 272.27 lineto
+0 268.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 259.55 moveto
+133.07 259.55 lineto
+133.07 263.55 lineto
+0 263.55 lineto
+0 259.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 250.82 moveto
+86.21 250.82 lineto
+86.21 254.82 lineto
+0 254.82 lineto
+0 250.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 242.09 moveto
+69.35 242.09 lineto
+69.35 246.09 lineto
+0 246.09 lineto
+0 242.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 233.36 moveto
+59.98 233.36 lineto
+59.98 237.36 lineto
+0 237.36 lineto
+0 233.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 224.64 moveto
+24.36 224.64 lineto
+24.36 228.64 lineto
+0 228.64 lineto
+0 224.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 215.91 moveto
+26.24 215.91 lineto
+26.24 219.91 lineto
+0 219.91 lineto
+0 215.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 207.18 moveto
+35.61 207.18 lineto
+35.61 211.18 lineto
+0 211.18 lineto
+0 207.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 198.45 moveto
+9.37 198.45 lineto
+9.37 202.45 lineto
+0 202.45 lineto
+0 198.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 189.73 moveto
+18.74 189.73 lineto
+18.74 193.73 lineto
+0 193.73 lineto
+0 189.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 181.00 moveto
+13.12 181.00 lineto
+13.12 185.00 lineto
+0 185.00 lineto
+0 181.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 172.27 moveto
+14.99 172.27 lineto
+14.99 176.27 lineto
+0 176.27 lineto
+0 172.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 163.55 moveto
+18.74 163.55 lineto
+18.74 167.55 lineto
+0 167.55 lineto
+0 163.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 154.82 moveto
+9.37 154.82 lineto
+9.37 158.82 lineto
+0 158.82 lineto
+0 154.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 146.09 moveto
+13.12 146.09 lineto
+13.12 150.09 lineto
+0 150.09 lineto
+0 146.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 137.36 moveto
+1.87 137.36 lineto
+1.87 141.36 lineto
+0 141.36 lineto
+0 137.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 128.64 moveto
+3.75 128.64 lineto
+3.75 132.64 lineto
+0 132.64 lineto
+0 128.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 124.27 moveto
+0.00 124.27 lineto
+0.00 128.27 lineto
+0 128.27 lineto
+0 124.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 119.91 moveto
+0.00 119.91 lineto
+0.00 123.91 lineto
+0 123.91 lineto
+0 119.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 115.55 moveto
+0.00 115.55 lineto
+0.00 119.55 lineto
+0 119.55 lineto
+0 115.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 111.18 moveto
+0.00 111.18 lineto
+0.00 115.18 lineto
+0 115.18 lineto
+0 111.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 106.82 moveto
+0.00 106.82 lineto
+0.00 110.82 lineto
+0 110.82 lineto
+0 106.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 102.45 moveto
+0.00 102.45 lineto
+0.00 106.45 lineto
+0 106.45 lineto
+0 102.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 93.73 moveto
+0.00 93.73 lineto
+0.00 97.73 lineto
+0 97.73 lineto
+0 93.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 85.00 moveto
+0.00 85.00 lineto
+0.00 89.00 lineto
+0 89.00 lineto
+0 85.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 50.09 moveto
+0.00 50.09 lineto
+0.00 54.09 lineto
+0 54.09 lineto
+0 50.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 41.36 moveto
+0.00 41.36 lineto
+0.00 45.36 lineto
+0 45.36 lineto
+0 41.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 32.64 moveto
+0.00 32.64 lineto
+0.00 36.64 lineto
+0 36.64 lineto
+0 32.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 23.91 moveto
+0.00 23.91 lineto
+0.00 27.91 lineto
+0 27.91 lineto
+0 23.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 15.18 moveto
+0.00 15.18 lineto
+0.00 19.18 lineto
+0 19.18 lineto
+0 15.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 6.45 moveto
+0.00 6.45 lineto
+0.00 10.45 lineto
+0 10.45 lineto
+0 6.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -2.27 moveto
+0.00 -2.27 lineto
+0.00 1.73 lineto
+0 1.73 lineto
+0 -2.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -11.00 moveto
+0.00 -11.00 lineto
+0.00 -7.00 lineto
+0 -7.00 lineto
+0 -11.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -9 translate
+0 0 moveto
+0 0 lineto
+133.07 0 lineto 
+stroke
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(Eucalyptus     ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+25 nstr cvs dup stringwidth pop
+2 div
+46.86 exch sub -11 moveto
+show
+46.86 -3 moveto
+0 6 rlineto
+50 nstr cvs dup stringwidth pop
+2 div
+93.71 exch sub -11 moveto
+show
+93.71 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+161.18 0 translate
+stroke
+0 0 moveto
+0 288.00 lineto
+0 9 translate
+0 277.00 moveto
+107.08 277.00 lineto
+107.08 281.00 lineto
+0 281.00 lineto
+0 277.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 268.27 moveto
+90.61 268.27 lineto
+90.61 272.27 lineto
+0 272.27 lineto
+0 268.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 259.55 moveto
+62.31 259.55 lineto
+62.31 263.55 lineto
+0 263.55 lineto
+0 259.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 250.82 moveto
+73.25 250.82 lineto
+73.25 254.82 lineto
+0 254.82 lineto
+0 250.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 242.09 moveto
+56.89 242.09 lineto
+56.89 246.09 lineto
+0 246.09 lineto
+0 242.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 233.36 moveto
+72.38 233.36 lineto
+72.38 237.36 lineto
+0 237.36 lineto
+0 233.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 224.64 moveto
+47.90 224.64 lineto
+47.90 228.64 lineto
+0 228.64 lineto
+0 224.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 215.91 moveto
+38.78 215.91 lineto
+38.78 219.91 lineto
+0 219.91 lineto
+0 215.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 207.18 moveto
+37.20 207.18 lineto
+37.20 211.18 lineto
+0 211.18 lineto
+0 207.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 198.45 moveto
+28.18 198.45 lineto
+28.18 202.45 lineto
+0 202.45 lineto
+0 198.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 189.73 moveto
+40.04 189.73 lineto
+40.04 193.73 lineto
+0 193.73 lineto
+0 189.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 181.00 moveto
+27.66 181.00 lineto
+27.66 185.00 lineto
+0 185.00 lineto
+0 181.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 172.27 moveto
+16.90 172.27 lineto
+16.90 176.27 lineto
+0 176.27 lineto
+0 172.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 163.55 moveto
+30.97 163.55 lineto
+30.97 167.55 lineto
+0 167.55 lineto
+0 163.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 154.82 moveto
+21.94 154.82 lineto
+21.94 158.82 lineto
+0 158.82 lineto
+0 154.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 146.09 moveto
+19.65 146.09 lineto
+19.65 150.09 lineto
+0 150.09 lineto
+0 146.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 137.36 moveto
+11.63 137.36 lineto
+11.63 141.36 lineto
+0 141.36 lineto
+0 137.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 128.64 moveto
+4.32 128.64 lineto
+4.32 132.64 lineto
+0 132.64 lineto
+0 128.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 124.27 moveto
+2.39 124.27 lineto
+2.39 128.27 lineto
+0 128.27 lineto
+0 124.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 119.91 moveto
+6.66 119.91 lineto
+6.66 123.91 lineto
+0 123.91 lineto
+0 119.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 115.55 moveto
+1.94 115.55 lineto
+1.94 119.55 lineto
+0 119.55 lineto
+0 115.55 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 111.18 moveto
+3.03 111.18 lineto
+3.03 115.18 lineto
+0 115.18 lineto
+0 111.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 106.82 moveto
+1.80 106.82 lineto
+1.80 110.82 lineto
+0 110.82 lineto
+0 106.82 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 102.45 moveto
+5.91 102.45 lineto
+5.91 106.45 lineto
+0 106.45 lineto
+0 102.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 93.73 moveto
+4.53 93.73 lineto
+4.53 97.73 lineto
+0 97.73 lineto
+0 93.73 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 85.00 moveto
+2.90 85.00 lineto
+2.90 89.00 lineto
+0 89.00 lineto
+0 85.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 50.09 moveto
+5.55 50.09 lineto
+5.55 54.09 lineto
+0 54.09 lineto
+0 50.09 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 41.36 moveto
+5.41 41.36 lineto
+5.41 45.36 lineto
+0 45.36 lineto
+0 41.36 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 32.64 moveto
+3.43 32.64 lineto
+3.43 36.64 lineto
+0 36.64 lineto
+0 32.64 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 23.91 moveto
+3.72 23.91 lineto
+3.72 27.91 lineto
+0 27.91 lineto
+0 23.91 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 15.18 moveto
+5.83 15.18 lineto
+5.83 19.18 lineto
+0 19.18 lineto
+0 15.18 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 6.45 moveto
+0.00 6.45 lineto
+0.00 10.45 lineto
+0 10.45 lineto
+0 6.45 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -2.27 moveto
+1.24 -2.27 lineto
+1.24 1.73 lineto
+0 1.73 lineto
+0 -2.27 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -11.00 moveto
+3.06 -11.00 lineto
+3.06 -7.00 lineto
+0 -7.00 lineto
+0 -11.00 lineto
+gsave
+gsave
+stroke
+grestore
+0 setgray fill
+grestore
+stroke
+0 -9 translate
+0 0 moveto
+0 0 lineto
+107.08 0 lineto 
+stroke
+5 296 moveto
+45 rotate
+% assign font for taxon name
+set_taxon-italic
+(TCT            ) show
+-45 rotate
+5 leading_45 add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+5 2 leading_45 mul add 296 moveto
+45 rotate
+set_taxon
+(                ) show
+-45 rotate
+% assign font for numbers under taxon x-axis
+set_botnum
+0 nstr cvs dup stringwidth pop
+2 div
+0.00 exch sub -11 moveto
+show
+0.00 -3 moveto
+0 6 rlineto
+20 nstr cvs dup stringwidth pop
+2 div
+46.86 exch sub -11 moveto
+show
+46.86 -3 moveto
+0 6 rlineto
+40 nstr cvs dup stringwidth pop
+2 div
+93.71 exch sub -11 moveto
+show
+93.71 -3 moveto
+0 6 rlineto
+% assign font for label under taxon curve
+set_botlab
+0 11 leading add neg moveto
+(                              ) show
+0 11 leading 2 mul add neg moveto
+(                              ) show
+135.20 0 translate
+stroke
+grestore
+% assign font for taxon group labels
+set_taxgrp
+-7 296.00 moveto
+45 rotate
+90 0 rlineto
+-45 rotate
+9 0 rlineto
+9 -3 rmoveto
+(HERBS & SHRUBS) show
+9 3 rmoveto
+643.58 359.64 lineto
+45 rotate
+-90 0 rlineto
+-45 rotate
+stroke
+604.58 0 translate
+stroke
+showpage
